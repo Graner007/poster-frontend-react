@@ -26,8 +26,20 @@ const PostContextProvider = (props) => {
             adomCount: 5, 
             commentCount: 2, 
             shareCount: 0, 
-            imageCount: 0
+            imageCount: 2
         },
+        { 
+            id: 3, 
+            personId: 2, 
+            message: 'It is my birthday :)', 
+            hasImage: false, 
+            hasVideo: true, 
+            postDate: "2021.03.01.", 
+            adomCount: 8, 
+            commentCount: 1, 
+            shareCount: 0, 
+            imageCount: 0
+        }
     ]);
 
     const addPost = (post) => { setPosts([...posts, post]); }
