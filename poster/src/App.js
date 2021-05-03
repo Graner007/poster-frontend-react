@@ -1,13 +1,16 @@
 import PostList from "./components/PostList";
 import PersonContextProvider from "./contexts/PersonContext";
 import PostContextProvider from "./contexts/PostContext";
+import MediaContextProvider from "./contexts/MediaContext";
 
 function App() {
   return (
     <div className="container">
       <PostContextProvider>
         <PersonContextProvider>
-          <PostList />
+          <MediaContextProvider>
+            <PostList />
+          </MediaContextProvider>
         </PersonContextProvider>
       </PostContextProvider>
     </div>
