@@ -1,2 +1,2 @@
-# poster-frontned-react
+# poster-frontend-react
 Frontend of Poster
