@@ -4,7 +4,7 @@ const NavbarLogoutItem = (props) => {
   return (
     <div className="navbar-logout-container">
       <img
-        href={props.href}
+        src={props.src}
         className="navbar-profile-picture"
         alt={props.name}
       />

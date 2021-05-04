@@ -10,7 +10,7 @@ const Navbar = () => {
         <NavbarItem to="/home" icon={<HomeIcon />} text="Home" />
         <NavbarItem to="/explore" icon={<SearchIcon />} text="Explore" />
       </div>
-      <NavbarLogoutItem href="/profile.png" name="dummy" />
+      <NavbarLogoutItem src="/profile.png" name="dummy" />
     </div>
   );
 };
