@@ -52,7 +52,6 @@ code {
   padding: 12px;
   display: flex;
   border-radius: 20px;
-  background-color: rgb(119, 250, 119);
   transition: background-color 0.5s;
 }
 
