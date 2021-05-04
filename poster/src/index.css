@@ -19,7 +19,10 @@ code {
 }
 
 .navbar {
+  display: flex;
+  flex-direction: column;
   width: clamp(100px, 50%, 200px);
+  height: 100vh;
 }
 
 .navbar-item-container {
@@ -68,4 +71,34 @@ code {
   height: 30px;
   color: black;
   transition: fill 0.5s;
+}
+
+.navbar-logout-container {
+  display: flex;
+  padding: 12px;
+  border-radius: 20px;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: 10px;
+}
+
+.navbar-logout-container:hover {
+  cursor: pointer;
+  background-color: rgb(216, 255, 157);
+}
+
+.navbar-profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.navbar-profile-name {
+  margin: 0px 10px;
+}
+
+.navbar-profile-dots {
+  width: 25px;
+  height: 25px;
+  margin-left: auto;
 }
