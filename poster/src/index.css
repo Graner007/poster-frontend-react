@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.App {
+#root {
   width: clamp(1280px, 50%, 1400px);
   margin-left: auto;
   margin-right: auto;
