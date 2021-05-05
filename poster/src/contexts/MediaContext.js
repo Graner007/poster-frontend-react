@@ -8,13 +8,19 @@ const MediaContextProvider = (props) => {
             id: 1,
             postId: 2,
             mediaRoute: "kiscica.png",
-            mediaType: 'image' 
+            mediaType: 'png' 
         },
         { 
             id: 2,
+            postId: 2,
+            mediaRoute: "kutya.jpg",
+            mediaType: 'jpg' 
+        },
+        { 
+            id: 3,
             postId: 3,
             mediaRoute: "torta.mp4",
-            mediaType: 'video' 
+            mediaType: 'mp4' 
         }
     ]);
 

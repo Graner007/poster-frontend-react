@@ -2,6 +2,7 @@ import PostList from "./components/PostList";
 import PersonContextProvider from "./contexts/PersonContext";
 import PostContextProvider from "./contexts/PostContext";
 import MediaContextProvider from "./contexts/MediaContext";
+import AddPost from "./components/AddPost";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <PostContextProvider>
         <PersonContextProvider>
           <MediaContextProvider>
+            <AddPost />
             <PostList />
           </MediaContextProvider>
         </PersonContextProvider>
