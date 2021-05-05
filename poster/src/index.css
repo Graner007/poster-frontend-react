@@ -187,3 +187,39 @@ textarea {
   resize: none;
   border: none;
 }
+
+.who-to-follow {
+  background-color: #ebeef0;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.who-to-follow-profile-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.who-to-follow-title {
+  margin: 10px;
+  justify-content: flex-start;
+}
+
+.who-to-follow-usename {
+  font-weight: bold;
+  font-size: 16px;
+  flex: 0.5 1;
+}
+
+.profile-card {
+  border: 0.5px solid #DCDCDC;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  align-items: center;
+}
+
+.follow-button {
+  flex: 0.3 1;
+}
