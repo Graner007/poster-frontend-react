@@ -157,3 +157,20 @@ code {
     transform: translateY(-65px) translateX(-42px);
   }
 }
+
+@media only screen and (max-width: 500px) {
+  #root {
+    width: clamp(200px, 100%, 500px);
+  }
+  .bottom-navbar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    justify-content: space-around;
+  }
+  .logout-dropdown-menu {
+    transform: translateY(-65px) translateX(-97%);
+  }
+}
