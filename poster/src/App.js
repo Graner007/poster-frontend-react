@@ -29,7 +29,7 @@ function App() {
             </MediaContextProvider>
           </PostContextProvider>
         </div>
-        <RightSidebar />
+        {width > 1018 && <RightSidebar />}
       </Router>
     </PersonContextProvider>
   );
