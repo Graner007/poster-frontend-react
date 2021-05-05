@@ -2,11 +2,13 @@ import { useState, useContext } from 'react';
 import { PostContext} from "../contexts/PostContext";
 import { PersonContext } from "../contexts/PersonContext";
 import { MediaContext } from "../contexts/MediaContext";
+import { v4 as uuidv4 } from 'uuid';
 
 const AddPost = () => {
-    const { posts, addPost } = useContext(PostContext);
+    const { addPost } = useContext(PostContext);
     const { people } = useContext(PersonContext);
-    const { medias, addMedia } = useContext(MediaContext);
+    const { addMedia } = useContext(MediaContext);
+    let postId = uuidv4();
 
     const currentProfle = people[0];
 
@@ -15,17 +17,14 @@ const AddPost = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const postId = posts.length + 1;
         let hasImage = false;
         let hasVideo = false;
         let imageCount = 0;
 
-        console.log(media);
-
         if (media.length > 0) {
             media.map(media => media.mediaType === "mp4" ? hasVideo = true : hasImage = true);
             media.map(media => media.mediaType !== "mp4" ? imageCount++ : null);
-            media.map(media => addMedia({ id: medias.length + 1, postId: postId, mediaRoute: media.split("\\")[2], mediaType: media.split(".")[media.split(".").length-1]}));
+            media.map(media => addMedia(postId, media));
         }
 
         let today = new Date();
@@ -55,7 +54,7 @@ const AddPost = () => {
 
     return (
         <form className="add-post" onSubmit={ handleSubmit } encType="multipart/form-data">
-            <div className="add-post-profile-picture">{ currentProfle.profilePicture }</div>
+            <div className="add-post-profile-picture"><img src={ "./src/media/images/" + currentProfle.profileImageRoute } alt="" /></div>
             <textarea cols="20" rows="4" type="text" className="add-post-message" value={ message } onChange={(e) => setMessage(e.target.value)} placeholder="What's happening?" required></textarea>
             <label htmlFor="add-post-media"><i className="fa fa-file-photo-o" style={{ fontSize:"30px" }} /></label><input style={{ display:"none" }} type="file" multiple className="add-post-media" id="add-post-media" accept="image/gif, image/jpeg, image/png, image/jpg video/mp4" onChange={(e) => setMedia([...media, e.target.value])} />
             <div className="add-post-emoji" style={{ fontSize:"30px" }}>&#9786;</div>

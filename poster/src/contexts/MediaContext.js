@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 export const MediaContext = createContext();
 
@@ -7,24 +8,24 @@ const MediaContextProvider = (props) => {
         { 
             id: 1,
             postId: 2,
-            mediaRoute: "kiscica.png",
-            mediaType: 'png' 
+            mediaRoute: "7aaf0f1d48f57b7779c0fbcf103c2d0f.jpg",
+            mediaType: 'jpg' 
         },
         { 
             id: 2,
             postId: 2,
-            mediaRoute: "kutya.jpg",
+            mediaRoute: "dog.jpg",
             mediaType: 'jpg' 
         },
         { 
             id: 3,
             postId: 3,
-            mediaRoute: "torta.mp4",
-            mediaType: 'mp4' 
+            mediaRoute: "cake.jpg",
+            mediaType: 'jpg' 
         }
     ]);
 
-    const addMedia = (media) => { setMedias([...medias, media]); }
+    const addMedia = (postId, mediaRoute) => { setMedias([...medias, { id: uuidv4(), postId: postId, mediaRoute: mediaRoute, mediaType: mediaRoute.split(".")[mediaRoute.split(".").length-1] }]); }
 
     return (
         <MediaContext.Provider value={{ medias, addMedia }}>

@@ -34,7 +34,7 @@ body {
   top: 5px;
   right: 100px;
   max-width: 350px;
-  position: absolute;
+  position: fixed;
 }
 
 .search-bar input {
