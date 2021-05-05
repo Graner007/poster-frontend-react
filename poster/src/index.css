@@ -23,6 +23,7 @@ code {
   flex-direction: column;
   width: clamp(100px, 50%, 200px);
   height: 100vh;
+  user-select: none;
 }
 
 .navbar-item-container {
@@ -75,16 +76,21 @@ code {
 
 .navbar-logout-container {
   display: flex;
-  padding: 12px;
-  border-radius: 20px;
-  align-items: center;
   margin-top: auto;
   margin-bottom: 10px;
 }
 
-.navbar-logout-container:hover {
+.navbar-profile-container:hover {
   cursor: pointer;
   background-color: rgb(216, 255, 157);
+}
+
+.navbar-profile-container {
+  display: flex;
+  padding: 12px;
+  border-radius: 20px;
+  align-items: center;
+  width: 100%;
 }
 
 .navbar-profile-picture {
@@ -101,4 +107,23 @@ code {
   width: 25px;
   height: 25px;
   margin-left: auto;
+}
+
+.logout-dropdown-menu {
+  position: absolute;
+  transform: translateY(-65px) translateX(-175px);
+  width: 250px;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: grey;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  text-decoration: none;
+  color: rgb(107, 107, 107);
 }
