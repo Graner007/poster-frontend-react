@@ -9,27 +9,29 @@ import MediaContextProvider from "./contexts/MediaContext";
 import AddPost from "./components/AddPost";
 import HomeHeader from "./components/HomeHeader";
 import SpaceAfterAddPost from "./components/SpaceAfterAddPost";
+import RightSidebar from "./RightSidebar";
 
 function App() {
   const [width, height] = useWindowSize();
 
   return (
-<Router>
-    <div className="container">
-      <HomeHeader />
-      <PostContextProvider>
-        <PersonContextProvider>
-          <MediaContextProvider>
-          {width > 500 && <Navbar />}
-          {width <= 500 && <BottomNavbar />}
-            <AddPost />
-            <SpaceAfterAddPost />
-            <PostList />
-          </MediaContextProvider>
-        </PersonContextProvider>
-      </PostContextProvider>
-    </div>
-    </Router>
+    <PersonContextProvider>
+      <Router>
+        {width > 500 && <Navbar />}
+        {width <= 500 && <BottomNavbar />}
+        <div className="container">
+          <HomeHeader />
+          <PostContextProvider>
+            <MediaContextProvider>
+              <AddPost />
+              <SpaceAfterAddPost />
+              <PostList />
+            </MediaContextProvider>
+          </PostContextProvider>
+        </div>
+        <RightSidebar />
+      </Router>
+    </PersonContextProvider>
   );
 }
 

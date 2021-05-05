@@ -13,6 +13,7 @@ code {
 }
 
 #root {
+  display: flex;
   width: clamp(1280px, 50%, 1400px);
   margin-left: auto;
   margin-right: auto;
@@ -20,10 +21,13 @@ code {
 
 .navbar {
   display: flex;
+  position: sticky;
   flex-direction: column;
   width: clamp(100px, 50%, 200px);
   height: 100vh;
   user-select: none;
+  top: 0px;
+  align-self: flex-start;
 }
 
 .navbar-item-container {
@@ -116,6 +120,7 @@ code {
   border-radius: 10px;
   border-width: 2px;
   border-color: grey;
+  background-color: white;
 }
 
 .dropdown-item {
@@ -165,6 +170,7 @@ code {
   .bottom-navbar {
     display: flex;
     flex-direction: row;
+    background-color: white;
     width: 100%;
     bottom: 0;
     position: fixed;
@@ -175,14 +181,17 @@ code {
   }
 }
 .container {
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  margin-right: 10px;
+  min-width: 400px;
   max-width: 600px;
 }
 
 .home {
   text-align: left;
-  border: 0.5px solid 	#DCDCDC;
+  border: 0.5px solid #dcdcdc;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -195,13 +204,17 @@ code {
   padding: 15px;
   text-align: left;
   font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .right-sidebar {
-  top: 5px;
-  right: 100px;
+  display: flex;
+  flex-direction: column;
   max-width: 350px;
-  position: fixed;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0px;
+  align-self: flex-start;
 }
 
 .search-bar input {
@@ -216,7 +229,7 @@ code {
 }
 
 .post {
-  border: 0.5px solid 	#DCDCDC;
+  border: 0.5px solid #dcdcdc;
   margin-bottom: 2px;
   padding: 10px;
 }
@@ -269,7 +282,7 @@ code {
   flex: 1 1 20px;
 }
 
-.adom-count:hover{
+.adom-count:hover {
   color: red;
 }
 
@@ -277,20 +290,22 @@ code {
   flex: 1 1 20px;
 }
 
-.comment-count:hover{
-  color: #00FFFF;
+.comment-count:hover {
+  color: #00ffff;
 }
 
 .share-count {
   flex: 1 1 20px;
 }
 
-.adom-count, .comment-count, .share-count {
+.adom-count,
+.comment-count,
+.share-count {
   font-size: 18px;
 }
 
 .share-count:hover {
-  color: #7FFF00;
+  color: #7fff00;
 }
 
 .button {
@@ -298,7 +313,7 @@ code {
   width: 100px;
   height: 36px;
   border-radius: 18px;
-  background-color: 	#228B22;
+  background-color: #228b22;
   border: solid 1px transparent;
   color: #fff;
   font-size: 18px;
@@ -312,11 +327,13 @@ code {
 }
 
 .add-post {
-  border: 1px solid 	#DCDCDC;
+  border: 1px solid #dcdcdc;
   padding: 10px;
+  margin-top: 5px;
 }
 
-.add-post-header, .add-post-media {
+.add-post-header,
+.add-post-media {
   display: flex;
   flex-direction: row;
 }
@@ -340,9 +357,9 @@ code {
   flex: 0.15 0.15;
 }
 
-.add-post-button {
-  position: relative;
-  left: 380px;
+.add-post-submit {
+  margin-left: auto;
+  justify-content: center;
 }
 
 textarea {
@@ -376,7 +393,8 @@ textarea {
 }
 
 .profile-card {
-  border: 0.5px solid #DCDCDC;
+  border: 0.5px solid #dcdcdc;
+  border-radius: 30px;
   display: flex;
   flex-direction: row;
   padding: 10px;
