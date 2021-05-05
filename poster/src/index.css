@@ -14,7 +14,7 @@ code {
 
 #root {
   display: flex;
-  width: clamp(1280px, 50%, 1400px);
+  width: 1130px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -132,9 +132,9 @@ code {
   color: rgb(107, 107, 107);
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1130px) {
   #root {
-    width: clamp(500px, 100%, 1280px);
+    width: clamp(500px, 100%, 1130px);
   }
   .navbar {
     width: 75px;
