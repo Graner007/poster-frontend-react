@@ -54,7 +54,6 @@ code {
   display: flex;
   align-items: center;
   padding: 12px;
-  display: flex;
   border-radius: 20px;
   transition: background-color 0.5s;
 }
@@ -126,4 +125,32 @@ code {
   height: 50px;
   text-decoration: none;
   color: rgb(107, 107, 107);
+}
+
+@media only screen and (max-width: 1280px) {
+  .navbar {
+    width: 75px;
+  }
+  .navbar-item {
+    width: 75px;
+    justify-content: center;
+  }
+  .navbar-item-text {
+    display: none;
+  }
+  .navbar-logout-container {
+    width: 75px;
+  }
+  .navbar-profile-container {
+    justify-content: center;
+  }
+  .navbar-profile-dots {
+    display: none;
+  }
+  .navbar-profile-name {
+    display: none;
+  }
+  .logout-dropdown-menu {
+    transform: translateY(-65px) translateX(-42px);
+  }
 }
