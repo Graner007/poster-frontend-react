@@ -13,7 +13,7 @@ const PersonContextProvider = (props) => {
             registrationDate: "2021.05.02.", 
             folloersCount: 5, 
             followedCount: 3, 
-            profileImageRoute: null
+            profileImageRoute: "anonymous.png"
         },
         { 
             id: 2,
@@ -24,7 +24,7 @@ const PersonContextProvider = (props) => {
             registrationDate: "2021.04.24.", 
             folloersCount: 3, 
             followedCount: 7, 
-            profileImageRoute: null
+            profileImageRoute: "anonymous.png"
         }
     ]);
 
