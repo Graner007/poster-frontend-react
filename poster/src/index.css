@@ -7,7 +7,161 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 600px;
+}
+
+.home {
+  text-align: left;
+  border: 0.5px solid 	#DCDCDC;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+.search-bar {
+  background-color: #ebeef0;
+  border-radius: 30px;
+  padding: 15px;
+  text-align: left;
+  font-size: 20px;
+}
+
+.right-sidebar {
+  top: 5px;
+  right: 100px;
+  max-width: 350px;
+  position: absolute;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  background-color: inherit;
+}
+
+.home-title {
+  margin: 10px;
+  font-weight: bold;
+}
+
+.post {
+  border: 0.5px solid 	#DCDCDC;
+  margin-bottom: 2px;
+  display: grid;
+  grid-template-areas: "profile-picture profile-name post-date"
+                       "post-message post-message post-message"
+                       "adom-count comment-count share-count";
+  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.post:hover {
+  background-color: lightgray;
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  grid-area: profile-picture;
+  border-radius: 50%;
+}
+
+.profile-name {
+  font-weight: bold;
+  grid-area: profile-name;
+}
+
+.post-date {
+  grid-area: post-date;
+}
+
+.post-message {
+  grid-area: post-message;
+}
+
+.post-video, .post-image {
+  border-radius: 20px;
+}
+
+.adom-count {
+  grid-area: adom-count;
+}
+
+.adom-count:hover{
+  color: red;
+}
+
+.comment-count {
+  grid-area: comment-count;
+}
+
+.comment-count:hover{
+  color: #00FFFF;
+}
+
+.share-count {
+  grid-area: share-count;
+}
+
+.share-count:hover {
+  color: #7FFF00;
+}
+
+.button {
+  display: block;
+  width: 100px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: 	#228B22;
+  border: solid 1px transparent;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.add-post-space {
+  padding: 5px;
+  background-color: #efefef;
+}
+
+.add-post {
+  border: 1px solid 	#DCDCDC;
+  display: grid;
+  grid-template-areas: "profile-picture add-post-message add-post-message"
+                       "add-post-media add-post-emoji add-post-button";
+  grid-template-rows: 1fr 40px;
+  grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.add-post-profile-picture {
+  grid-area: profile-picture;
+}
+
+.add-post-message {
+  margin: 20px;
+  grid-area: add-post-message;
+}
+
+.add-post-emoji {
+  grid-area: add-post-emoji;
+}
+
+.add-post-media {
+  grid-area: add-post-media;
+}
+
+.add-post-button {
+  grid-area: add-post-button;
+}
+
+textarea {
+  outline: none;
+  resize: none;
+  border: none;
 }
