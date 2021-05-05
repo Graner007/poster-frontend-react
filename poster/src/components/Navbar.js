@@ -10,7 +10,12 @@ const Navbar = () => {
         <NavbarItem to="/home" icon={<HomeIcon />} text="Home" />
         <NavbarItem to="/explore" icon={<SearchIcon />} text="Explore" />
       </div>
-      <NavbarLogoutItem src="/profile.png" name="dummy" />
+
+      {/*TODO: Implement with login and registration */}
+      <NavbarLogoutItem
+        src="https://i.picsum.photos/id/198/200/200.jpg?hmac=3UdulfE9DTCNBECOusB2ignsI8T-XhkGI-M0P2BMJm8"
+        name="John"
+      />
     </div>
   );
 };
