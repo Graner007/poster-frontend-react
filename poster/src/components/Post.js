@@ -16,17 +16,23 @@ const Post = ({ post }) => {
 
     return (
         <div className="post" key={ post.id }>
-            <div className="profile-picture"><img src={ "/src/media/images/" + person.profileImageRoute } alt=""/></div>
-            <div className="profile-name">{ person.username }</div>
-            <div className="post-date">{ post.postDate }</div>
-            <div className="post-message" style={{ fontSize:"20px" }}>
-                { post.message } <br/> <br/>
-                { post.hasImage ? media.map(image => <img src={ "/src/media/images/" + image.mediaRoute } className="post-image" alt="" />) : ""}
-                { post.hasVideo ? media.map(video => <video width="400px" controls className="post-video" ><source src={ video.mediaRoute } /></video>) : ""}
+            <div className="post-header">
+                <div className="profile-picture"><img src={ person.profileImageRoute } alt=""/></div>
+                <div className="profile-name">{ person.username }</div>
+                <div className="post-date">{ post.postDate }</div>
             </div>
-            <div className="adom-count"><i className="material-icons">favorite</i> { post.adomCount }</div>
-            <div className="comment-count"><i className='fa fa-comment' /> { post.commentCount }</div>
-            <div className="share-count"><i className="fa">&#xf1e0;</i> { post.shareCount }</div>       
+            <div className="post-middle">
+                <div className="post-message" style={{ fontSize:"20px" }}>
+                    { post.message } <br/> <br/>
+                    { post.hasImage ? media.map(image => <img src={ image.mediaRoute } className="post-image" alt="" />) : ""}
+                    { post.hasVideo ? media.map(video => <video width="400px" controls className="post-video" ><source src={ video.mediaRoute } /></video>) : ""}
+                </div>
+            </div><br/><br/>
+            <div className="post-bottom">
+                <div className="adom-count"><i className="fa fa-heart" /> { post.adomCount }</div>
+                <div className="comment-count"><i className='fa fa-comment' /> { post.commentCount }</div>
+                <div className="share-count"><i className="fa">&#xf1e0;</i> { post.shareCount }</div> 
+            </div>      
         </div>
     )
 }
