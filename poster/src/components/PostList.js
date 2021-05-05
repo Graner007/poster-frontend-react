@@ -7,7 +7,7 @@ const PostList = () => {
 
     return (
         <div className="feed">
-            { posts.map((post) => (
+            { posts.map(post => (
                 <Post post={ post } />
             )) }
         </div>
