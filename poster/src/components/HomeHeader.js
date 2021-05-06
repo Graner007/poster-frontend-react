@@ -1,7 +1,7 @@
-const HomeHeader = () => {
+const HomeHeader = ({ title }) => {
     return (
         <div className="home">
-            <h2 className="home-title">Home</h2>
+            <h2 className="home-title">{ title }</h2>
         </div>
     )
 }

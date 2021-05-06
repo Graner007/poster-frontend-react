@@ -11,9 +11,10 @@ const PersonContextProvider = (props) => {
             description: 'guy from hungary', 
             birthDate: "2001.12.27", 
             registrationDate: "2021.05.02.", 
-            folloersCount: 5, 
+            followersCount: 5, 
             followedCount: 3, 
-            profileImageRoute: "https://picsum.photos/200/300"
+            profileImageRoute: "https://picsum.photos/300",
+            profileBackgroundImageRoute: "https://picsum.photos/800"
         },
         { 
             id: 2,
@@ -22,9 +23,10 @@ const PersonContextProvider = (props) => {
             description: 'another guy from hungary', 
             birthDate: "2001.12.23", 
             registrationDate: "2021.04.24.", 
-            folloersCount: 3, 
+            followersCount: 3, 
             followedCount: 7, 
-            profileImageRoute: "https://picsum.photos/200/400"
+            profileImageRoute: "https://picsum.photos/400",
+            profileBackgroundImageRoute: "https://picsum.photos/900"
         }
     ]);
 
