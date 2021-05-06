@@ -1,9 +1,11 @@
 import { useContext } from "react";
+import { useParams } from "react-router";
 import { PersonContext } from '../contexts/PersonContext';
 
-const Profile = ({ id }) => {
+const Profile = () => {
     const { people } = useContext(PersonContext);
-    const person = people.find(person => person.id === id);
+    const { id } = useParams();
+    const person = people.find(person => person.id === parseInt(id));
 
     return (
         <div className="profile-page">
