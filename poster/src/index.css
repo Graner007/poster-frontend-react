@@ -135,6 +135,7 @@ code {
 @media only screen and (max-width: 1130px) {
   #root {
     width: clamp(500px, 100%, 1130px);
+    justify-content: center;
   }
   .navbar {
     width: 75px;
