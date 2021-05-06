@@ -10,26 +10,30 @@ import AddPost from "./components/AddPost";
 import HomeHeader from "./components/HomeHeader";
 import SpaceAfterAddPost from "./components/SpaceAfterAddPost";
 import RightSidebar from "./RightSidebar";
+import Profile from "./components/Profile";
 
 function App() {
   const [width, height] = useWindowSize();
+  const headerTitle = "Home";
+  let id = 1;
 
   return (
     <PersonContextProvider>
       <Router>
-        {width > 500 && <Navbar />}
-        {width <= 500 && <BottomNavbar />}
+        { width > 500 && <Navbar /> }
+        { width <= 500 && <BottomNavbar /> }
         <div className="container">
-          <HomeHeader />
+          <HomeHeader title={ headerTitle } />
           <PostContextProvider>
             <MediaContextProvider>
-              <AddPost />
+              {/* <AddPost />
               <SpaceAfterAddPost />
-              <PostList />
+              <PostList /> */}
+              <Profile id={ id } />
             </MediaContextProvider>
           </PostContextProvider>
         </div>
-        {width > 1018 && <RightSidebar />}
+        { width > 1018 && <RightSidebar /> }
       </Router>
     </PersonContextProvider>
   );

@@ -8,19 +8,19 @@ const MediaContextProvider = (props) => {
         { 
             id: 1,
             postId: 2,
-            mediaRoute: "https://picsum.photos/200/100",
+            mediaRoute: "https://picsum.photos/100",
             mediaType: 'jpg' 
         },
         { 
             id: 2,
             postId: 2,
-            mediaRoute: "https://picsum.photos/200/500",
+            mediaRoute: "https://picsum.photos/500",
             mediaType: 'jpg' 
         },
         { 
             id: 3,
             postId: 3,
-            mediaRoute: "https://picsum.photos/200/600",
+            mediaRoute: "https://picsum.photos/600",
             mediaType: 'jpg' 
         }
     ]);
