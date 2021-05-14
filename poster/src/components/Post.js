@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { PersonContext } from "../contexts/PersonContext";
 import { MediaContext } from "../contexts/MediaContext";
+import { Link } from "react-router-dom";
 
 const Post = ({ post }) => {
     const { people } = useContext(PersonContext);
@@ -17,8 +18,10 @@ const Post = ({ post }) => {
     return (
         <div className="post" key={ post.id }>
             <div className="post-header">
-                <div className="profile-picture"><img src={ person.profileImageRoute } alt=""/></div>
-                <div className="profile-name">{ person.username }</div>
+                <Link to={ '/profile/' + person.id } className="profile-link">
+                    <div className="profile-picture"><img src={ person.profileImageRoute } alt=""/></div>
+                    <div className="profile-name">{ person.username }</div>
+                </Link>
                 <div className="post-date">{ post.postDate }</div>
             </div>
             <div className="post-middle">

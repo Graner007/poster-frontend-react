@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
 import useWindowSize from "./util/useWindowSize";
 import BottomNavbar from "./components/BottomNavbar";
 import PersonContextProvider from "./contexts/PersonContext";
@@ -11,7 +11,7 @@ import Profile from "./components/Profile";
 import Feed from "./components/Feed";
 
 function App() {
-  const [width, height] = useWindowSize();
+  const [width] = useWindowSize();
   const headerTitle = "Home";
 
   return (
@@ -24,6 +24,9 @@ function App() {
               <PostContextProvider>
                 <MediaContextProvider>
                   <Switch>
+                  <Route exact path="/">
+                    <Redirect to="/home" />
+                  </Route>
                   <Route path="/home" exact>
                     <Feed />
                   </Route>
