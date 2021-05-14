@@ -253,6 +253,7 @@ code {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  margin-right: 10px;
 }
 
 .profile-name {
@@ -384,6 +385,7 @@ textarea {
   height: 50px;
   width: 50px;
   border-radius: 50%;
+  margin-right: 10px;
 }
 
 .who-to-follow-title {
@@ -478,4 +480,14 @@ textarea {
 
 .profile-adoms:hover {
   color: var(--postGreen);
+}
+
+.profile-link {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  align-items: center;
+  margin-right: 10px;
+  justify-content: space-around;
+  color: black
 }
