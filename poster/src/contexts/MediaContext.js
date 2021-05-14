@@ -25,7 +25,7 @@ const MediaContextProvider = (props) => {
         }
     ]);
 
-    const addMedia = (postId, mediaRoute) => { setMedias([...medias, { id: uuidv4(), postId: postId, mediaRoute: mediaRoute, mediaType: mediaRoute.split(".")[mediaRoute.split(".").length-1] }]); }
+    const addMedia = (postId, mediaRoute) => { setMedias([...medias, { id: uuidv4(), postId: postId, mediaRoute: mediaRoute, mediaType: "jpg" }]); }
 
     return (
         <MediaContext.Provider value={{ medias, addMedia }}>
