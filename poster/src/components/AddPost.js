@@ -15,6 +15,10 @@ const AddPost = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (message.length > 250) {
+      return;
+    }
+
     const post = {
       person: {
         id: "1",
@@ -44,6 +48,7 @@ const AddPost = () => {
           type="text"
           className="add-post-message"
           value={message}
+          maxLength="250"
           onChange={(e) => setMessage(e.target.value)}
           placeholder="What's happening?"
           required
