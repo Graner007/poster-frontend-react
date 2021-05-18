@@ -317,7 +317,7 @@ code {
 
 .button {
   display: block;
-  width: 100px;
+  width: auto;
   height: 36px;
   border-radius: 18px;
   background-color: var(--postGreen);
