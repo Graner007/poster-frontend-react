@@ -1,16 +1,28 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Redirect } from 'react-router-dom';
 
-const Registration = ({ view, setView }) => {
+const Registration = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [birthDate, setBirthDate] = useState();
+    const [view, setView] = useState("");
 
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [redirect, setRedirect] = useState(false);
+    const url = window.location.pathname;
+
+    useEffect(() => {
+        switch (url) {
+            case "/registration":
+                setView("block");
+                break;
+            default:
+                setView("none");    
+        }
+    }, [url]);
 
     const closeRegistrationDialog = () => {
         setView("none");

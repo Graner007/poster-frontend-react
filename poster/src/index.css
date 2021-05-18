@@ -557,6 +557,7 @@ textarea {
 
 .login-sign-up-link {
   text-decoration: none;
+  width: inherit;
   color: blue;
 }
 
