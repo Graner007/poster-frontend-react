@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar";
-import { Route, BrowserRouter as Router, Redirect, useLocation } from "react-router-dom";
+import { Route, BrowserRouter as Router, useLocation, Switch } from "react-router-dom";
 import useWindowSize from "./util/useWindowSize";
 import BottomNavbar from "./components/BottomNavbar";
 import PersonContextProvider from "./contexts/PersonContext";
@@ -9,42 +9,48 @@ import HomeHeader from "./components/HomeHeader";
 import RightSidebar from "./RightSidebar";
 import Profile from "./components/Profile";
 import Feed from "./components/Feed";
-import Registration from "./components/Registration";
 import Index from "./components/Index";
+import Login from "./components/Login";
 
 function App() {
   const [width] = useWindowSize();
   const url = document.location.pathname;
   //const url = useLocation().pathname;
   const headerTitle = "Home";
-  const denyUrls = ["/registration", "/login", "/"];
+  const contentRoutes = ["/registration", "/login", "/"];
 
   return (
     <PersonContextProvider>
-      <Router>
-            { width > 500 && !denyUrls.includes(url) && <Navbar /> }
-            { width <= 500 && !denyUrls.includes(url) && <BottomNavbar /> }
-            <div className="container">
-              { !denyUrls.includes(url) && <HomeHeader title={ headerTitle } /> }
-              <PostContextProvider>
-                <MediaContextProvider>
-                  <Route path="/" exact>
+      <PostContextProvider>
+       <MediaContextProvider>
+        <Router>
+          { !contentRoutes.includes(url) && width > 500 && <Navbar /> }
+          { !contentRoutes.includes(url) && width <= 500 && <BottomNavbar /> }
+          { contentRoutes.includes(url) && 
+            <div className="content">
+              <Switch>
+                  <Route path="/login" exact>
+                    <Login />
+                  </Route>
+                  <Route path="/">
                     <Index />
                   </Route>
-                  <Route path="/home" exact>
+              </Switch>
+            </div> }
+            { !contentRoutes.includes(url) && 
+              <div className="container"> 
+                <HomeHeader title={ headerTitle } />
+                <Route path="/home" exact>
                     <Feed />
                   </Route>
                   <Route path="/profile/:id" exact>
                     <Profile />
                   </Route>
-                </MediaContextProvider>
-              </PostContextProvider>
-              <Route path="/registration" exact>
-                <Registration />
-            </Route>
-            </div>
-            { width > 1018 && !denyUrls.includes(url) && <RightSidebar /> }
-      </Router>
+              </div> }
+          { width > 1018 && !contentRoutes.includes(url) && <RightSidebar /> }
+        </Router>
+        </MediaContextProvider>
+      </PostContextProvider>
     </PersonContextProvider>
   );
 }
