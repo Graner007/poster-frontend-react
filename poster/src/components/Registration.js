@@ -40,19 +40,23 @@ const Registration = () => {
     }
 
     return (
-        <form className="registraion-field" onSubmit={ handleSubmit }>
-            <label htmlFor="username">Username:</label><br />
-            <input type="text" placeholder="username..." name="username" id="username" required onChange={(e) => setUsername(e.target.value)} /><br />
-            <label htmlFor="email">Email:</label><br />
-            <input type="email" placeholder="email..." name="email" id="email" required onChange={(e) => setEmail(e.target.value)} /><br />
-            <label htmlFor="password">Password:</label><br />
-            <input type="password" placeholder="password..." name="password" id="password" required onChange={(e) => setPassword(e.target.value)} /><br />
-            <label htmlFor="birthday">Birthday:</label><br />
-            <input type="date" name="birthday" id="birthday" required onChange={(e) => setBirthDate(e.target.value)} /><br />
-            <input type="submit" className="button" value="Registration" />
-            { error && <div style={{ color: 'red' }}>{ errorMessage }</div> }
-            { redirect && <Redirect to="/" /> }
-        </form>
+        <div id="myModal" className="modal">
+            <div className="modal-content">
+                <form className="registraion-field" onSubmit={ handleSubmit }>
+                    <label htmlFor="username">Username:</label><br />
+                    <input type="text" placeholder="username..." name="username" id="username" required onChange={(e) => setUsername(e.target.value)} /><br />
+                    <label htmlFor="email">Email:</label><br />
+                    <input type="email" placeholder="email..." name="email" id="email" required onChange={(e) => setEmail(e.target.value)} /><br />
+                    <label htmlFor="password">Password:</label><br />
+                    <input type="password" placeholder="password..." name="password" id="password" required onChange={(e) => setPassword(e.target.value)} /><br />
+                    <label htmlFor="birthday">Birthday:</label><br />
+                    <input type="date" name="birthday" id="birthday" required onChange={(e) => setBirthDate(e.target.value)} /><br />
+                    <input type="submit" className="button" value="Registration" />
+                    { error && <div style={{ color: 'red' }}>{ errorMessage }</div> }
+                    { redirect && <Redirect to="/" /> }
+                </form>
+            </div>
+        </div>
     )
 }
 

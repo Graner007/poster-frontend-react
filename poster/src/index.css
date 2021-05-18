@@ -491,3 +491,30 @@ textarea {
   justify-content: space-around;
   color: black
 }
+
+.index {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.index-main-title {
+  font-size: 64px;
+}
+
+.login-link,
+.sign-up-link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.index-second-title {
+  font-size: 31px;
+}
+
+.index-button{
+  width: 250px;
+}
