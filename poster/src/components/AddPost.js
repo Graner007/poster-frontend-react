@@ -2,13 +2,10 @@ import { useState, useContext } from "react";
 import { PostContext } from "../contexts/PostContext";
 import { PersonContext } from "../contexts/PersonContext";
 import { MediaContext } from "../contexts/MediaContext";
-import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
 
 const AddPost = () => {
-  const { addPost } = useContext(PostContext);
   const { people } = useContext(PersonContext);
-  const { addMedia } = useContext(MediaContext);
-  let postId = uuidv4();
 
   const currentProfle = people[0];
 
@@ -17,38 +14,15 @@ const AddPost = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let hasImage = false;
-    let hasVideo = false;
-    let imageCount = 0;
 
-    if (media.length > 0) {
-      media.map((media) =>
-        media.mediaType === "mp4" ? (hasVideo = true) : (hasImage = true)
-      );
-      media.map((media) => (media.mediaType !== "mp4" ? imageCount++ : null));
-      media.map((media) => addMedia(postId, media));
-    }
-
-    let today = new Date();
-    const day = String(today.getDate()).padStart(2, "0");
-    const month = String(today.getMonth() + 1).padStart(2, "0");
-    const year = today.getFullYear();
-    today = year + "." + month + "." + day;
-
-    const newPost = {
-      id: postId,
-      personId: 2,
-      message: message,
-      hasImage: hasImage,
-      hasVideo: hasVideo,
-      postDate: today,
-      adomCount: 0,
-      commentCount: 0,
-      shareCount: 0,
-      imageCount: imageCount,
+    const post = {
+      person: {
+        id: "1",
+      },
+      message,
     };
 
-    addPost(newPost);
+    axios.post("/posts/add", post);
 
     setMessage("");
     setMedia([]);
