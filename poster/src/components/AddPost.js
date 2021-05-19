@@ -6,11 +6,9 @@ import { v4 as uuidv4 } from "uuid";
 
 const AddPost = () => {
   const { addPost } = useContext(PostContext);
-  const { people } = useContext(PersonContext);
+  const { people, currentPerson } = useContext(PersonContext);
   const { addMedia } = useContext(MediaContext);
   let postId = uuidv4();
-
-  const currentProfle = people[0];
 
   const [message, setMessage] = useState("");
   const [media, setMedia] = useState([]);
@@ -37,7 +35,7 @@ const AddPost = () => {
 
     const newPost = {
       id: postId,
-      personId: 2,
+      personId: currentPerson.id,
       message: message,
       hasImage: hasImage,
       hasVideo: hasVideo,
@@ -62,7 +60,7 @@ const AddPost = () => {
     >
       <div className="add-post-header">
         <div className="add-post-profile-picture">
-          <img src={currentProfle.profileImageRoute} alt="" />
+          <img src={currentPerson.profileImageRoute} alt="" />
         </div>
         <textarea
           cols="55"
