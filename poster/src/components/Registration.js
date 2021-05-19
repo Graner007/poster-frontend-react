@@ -56,15 +56,15 @@ const Registration = () => {
     }
 
     return (
-        <div id="myModal" className="modal" style={{ display: view }}>
+        <div className="modal" style={{ display: view }}>
             <div className="modal-content">
                 <span className="close" onClick={ closeRegistrationDialog }>&times;</span>
                 <form className="registraion-field" onSubmit={ sendRegistration }>
                     <div className="register-inputs">
-                        <input type="text" className="register-input" placeholder="Username" name="username" id="username" required onChange={(e) => setUsername(e.target.value)} /><br />
-                        <input type="email" placeholder="Email" className="register-input" name="email" id="email" required onChange={(e) => setEmail(e.target.value)} /><br />
-                        <input type="password" className="register-input" placeholder="Password" name="password" id="password" required onChange={(e) => setPassword(e.target.value)} /><br />
-                        <input type="date" className="register-input" name="birthday" id="birthday" required onChange={(e) => setBirthDate(e.target.value)} /><br />
+                        <input type="text" className="input" placeholder="Username" name="username" id="username" required onChange={(e) => setUsername(e.target.value)} /><br />
+                        <input type="email" placeholder="Email" className="input" name="email" id="email" required onChange={(e) => setEmail(e.target.value)} /><br />
+                        <input type="password" className="input" placeholder="Password" name="password" id="password" required onChange={(e) => setPassword(e.target.value)} /><br />
+                        <input type="date" className="input" name="birthday" id="birthday" required onChange={(e) => setBirthDate(e.target.value)} /><br />
                     </div>
                     <div className="register-button">
                         <input type="submit" className="button" value="Registration" />

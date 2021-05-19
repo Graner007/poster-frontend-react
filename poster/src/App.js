@@ -11,6 +11,7 @@ import Profile from "./components/Profile";
 import Feed from "./components/Feed";
 import Index from "./components/Index";
 import Login from "./components/Login";
+import EditProfile from "./components/EditProfile";
 
 function App() {
   const [width] = useWindowSize();
@@ -45,6 +46,9 @@ function App() {
                   </Route>
                   <Route path="/profile/:id" exact>
                     <Profile />
+                  </Route>
+                  <Route path="/settings/profile" exact>
+                    <EditProfile />
                   </Route>
               </div> }
           { width > 1018 && !contentRoutes.includes(url) && <RightSidebar /> }

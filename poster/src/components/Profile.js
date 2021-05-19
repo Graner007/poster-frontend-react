@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useContext  } from "react";
 import { useParams } from "react-router";
 import { PersonContext } from '../contexts/PersonContext';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
     const { people, currentPerson } = useContext(PersonContext);
@@ -14,7 +15,7 @@ const Profile = () => {
             <img src={ person.profileBackgroundImageRoute } alt="" className="profile-background-image" />
             <div className="before-bio">
                 <img src={ person.profileImageRoute } alt="" className="profile-image" />
-                { isCurrentPersonProfile ? <button className="button edit-profile-button">Edit profile</button> : <button className="button edit-profile-button">Follow</button>}
+                { isCurrentPersonProfile ? <Link to="/settings/profile" className="edit-profile-link"><button className="button">Edit profile</button></Link> : <button className="button profile-follow-button">Follow</button>}
             </div>
             <div className="bio">
                 <div className="profile-name">{ person.username }</div>
