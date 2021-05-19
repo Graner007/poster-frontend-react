@@ -3,16 +3,18 @@ import { useParams } from "react-router";
 import { PersonContext } from '../contexts/PersonContext';
 
 const Profile = () => {
-    const { people } = useContext(PersonContext);
+    const { people, currentPerson } = useContext(PersonContext);
     const { id } = useParams();
-    const person = people.find(person => person.id === parseInt(id));
+    const intId = parseInt(id); 
+    const person = people.find(person => person.id === intId);
+    const isCurrentPersonProfile = currentPerson.id === intId ? true : false;
 
     return (
         <div className="profile-page">
             <img src={ person.profileBackgroundImageRoute } alt="" className="profile-background-image" />
             <div className="before-bio">
                 <img src={ person.profileImageRoute } alt="" className="profile-image" />
-                <button className="button edit-profile-button">Edit profile</button>
+                { isCurrentPersonProfile ? <button className="button edit-profile-button">Edit profile</button> : <button className="button edit-profile-button">Follow</button>}
             </div>
             <div className="bio">
                 <div className="profile-name">{ person.username }</div>
