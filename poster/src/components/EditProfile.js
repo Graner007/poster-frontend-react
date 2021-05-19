@@ -23,7 +23,6 @@ const EditProfile = () => {
     }
 
     useEffect(() => {
-        console.log(url);
         switch (url) {
             case "/settings/profile":
                 setView("block");
@@ -36,12 +35,21 @@ const EditProfile = () => {
     const sendEdit = (e) => {
         e.preventDefault();
 
-        const newPerson = {
-            profileBackgroundImageRoute: newProfileBackgroundImageRoute,
-            profileImageRoute: newProfileImageRoute,
-            username: newUsername,
-            description: newBio
-        }
+        const newPerson = new FormData();
+
+        newPerson.append("id", currentPerson.id);
+
+        if (newProfileImageRoute !== currentPerson.profileImageRoute)
+            newPerson.append("profileImageRoute", newProfileImageRoute);
+        
+        if (newProfileBackgroundImageRoute !== currentPerson.profileBackgroundImageRoute)
+            newPerson.append("profileBackgroundImageRoute", newProfileBackgroundImageRoute);
+
+        if (newUsername !== currentPerson.username)
+            newPerson.append("username", newUsername);
+
+        if (newBio !== currentPerson.description)
+            newPerson.append("description", newBio);
 
         axios.post("/settings/profile", newPerson)
             .then(res => console.log(res))

@@ -30,6 +30,8 @@ const PersonContextProvider = (props) => {
         }
     ]);
 
+
+
     const addPerson = (person) => { setPeople([...people, person]); }
 
     const currentPerson = people[0];
