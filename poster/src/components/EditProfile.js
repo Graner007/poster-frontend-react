@@ -10,7 +10,7 @@ const EditProfile = () => {
     const [view, setView] = useState('');
     const [redirect, setRedirect] = useState(false);
     const [error, setError] = useState(false);
-    const [errorMessage, setMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
     const [newProfileImageRoute, setNewProfileImageRoute] = useState(currentPerson.profileImageRoute);
     const [newProfileBackgroundImageRoute, setNewProfileBackgroundImageRoute] = useState(currentPerson.profileBackgroundImageRoute);
     const [newUsername, setNewUsername] = useState(currentPerson.username);
@@ -52,7 +52,18 @@ const EditProfile = () => {
             newPerson.append("description", newBio);
 
         axios.post("/settings/profile", newPerson)
-            .then(res => console.log(res))
+            .then(res => {
+                switch (res.data) {
+                    case "success":
+                        setError(false);
+                        setErrorMessage("");
+                        setRedirect(true);
+                        break;
+                    default:
+                        setErrorMessage(res.data);
+                        setError(true);
+                }
+            })
             .catch(err => console.log(err));
     }
 
