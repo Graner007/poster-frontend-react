@@ -3,6 +3,7 @@ import { PostContext } from "../contexts/PostContext";
 import { PersonContext } from "../contexts/PersonContext";
 import { MediaContext } from "../contexts/MediaContext";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 const AddPost = () => {
   const { people } = useContext(PersonContext);
@@ -19,14 +20,15 @@ const AddPost = () => {
       return;
     }
 
-    const post = {
-      person: {
-        id: "1",
-      },
-      message,
-    };
+    const formData = new FormData();
 
-    axios.post("/posts/add", post);
+    for (let medium of media) {
+      formData.append("files", medium);
+    }
+    formData.append("message", message);
+    formData.append("person_id", "1");
+
+    axios.post("/posts/add", formData);
 
     setMessage("");
     setMedia([]);
@@ -65,7 +67,7 @@ const AddPost = () => {
           className="add-post-media"
           id="add-post-media"
           accept="image/gif, image/jpeg, image/png, image/jpg video/mp4"
-          onChange={(e) => setMedia([...media, e.target.value])}
+          onChange={(e) => setMedia([...media, e.target.files[0]])}
         />
         <div className="add-post-emoji" style={{ fontSize: "40px" }}>
           &#9786;
