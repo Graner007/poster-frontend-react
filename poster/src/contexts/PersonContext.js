@@ -32,8 +32,10 @@ const PersonContextProvider = (props) => {
 
     const addPerson = (person) => { setPeople([...people, person]); }
 
+    const currentPerson = people[0];
+
     return (
-        <PersonContext.Provider value={{ people, addPerson }}>
+        <PersonContext.Provider value={{ people, addPerson, currentPerson }}>
             { props.children }
         </PersonContext.Provider>
     )
