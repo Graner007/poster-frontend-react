@@ -82,11 +82,11 @@ const EditProfile = () => {
                         </label>
                         <input style={{ display: "none" }} type="file" className="edit-profile-background-image" id="edit-profile-background-image" accept="image/jpeg, image/png, image/jpg" onChange={(e) => setNewProfileBackgroundImageRoute(e.target.value)} />
                         <label htmlFor="edit-profile-image">
-                            <img src={ newProfileImageRoute } alt="" className="profile-image" />
+                            <img src={ newProfileImageRoute } alt="" className="edit-profile-image" />
                         </label>
                         <input style={{ display: "none" }} type="file" className="edit-profile-image" id="edit-profile-image" accept="image/jpeg, image/png, image/jpg" onChange={(e) => setNewProfileImageRoute(e.target.value)} />
-                        <input type="text" className="input" value={ newUsername } placeholder="Username" name="new-username" id="new-username" required onChange={(e) => setNewUsername(e.target.value)} /><br />
-                        <textarea value={ newBio } name="new-bio" id="new-bio" cols="30" rows="10" onChange={(e) => setNewBio(e.target.value)}></textarea><br />
+                        <input type="text" style={{ marginTop: "75px" }} className="input" value={ newUsername } placeholder="Username" name="new-username" id="new-username" required onChange={(e) => setNewUsername(e.target.value)} /><br />
+                        <textarea className="input" value={ newBio } name="new-bio" id="new-bio" cols="30" rows="10" onChange={(e) => setNewBio(e.target.value)}></textarea><br />
                     </div>
                     { error && <div style={{ color: 'red' }}>{ errorMessage }</div> }
                     { redirect && <Redirect to={ '/profile/' + currentPerson.id } /> }
