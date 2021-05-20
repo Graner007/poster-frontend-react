@@ -1,17 +1,27 @@
-import { useContext } from "react";
+import { useEffect, useState } from "react";
 import Post from "./Post";
-import { PostContext} from "../contexts/PostContext";
- 
-const PostList = () => {
-    const { posts } = useContext(PostContext);
+import axios from "axios";
 
-    return (
-        <div className="feed">
-            { posts.map(post => (
-                <Post post={ post } />
-            )) }
-        </div>
-    )
-}
+const PostList = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    getPosts();
+  }, []);
+
+  const getPosts = async () => {
+    await axios
+      .get("http://localhost:8080/posts")
+      .then((data) => setPosts(data.data));
+  };
+  console.log(posts);
+  return (
+    <div className="feed">
+      {posts.map((post) => (
+        <Post post={post.post} media={post.media} />
+      ))}
+    </div>
+  );
+};
 
 export default PostList;

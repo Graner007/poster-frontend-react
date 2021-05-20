@@ -4,24 +4,15 @@ import { MediaContext } from "../contexts/MediaContext";
 import { Link } from "react-router-dom";
 import ImageContainer from "./ImageContainer";
 
-const Post = ({ post }) => {
-  const { people } = useContext(PersonContext);
-  const { medias } = useContext(MediaContext);
-
-  const person = people.find((person) => person.id === post.personId);
-
-  let media = null;
-
-  if (post.hasImage || post.hasVideo) {
-    media = medias.filter((media) => media.postId === post.id);
-  }
+const Post = ({ post, media }) => {
+  const person = post.person;
 
   return (
     <div className="post" key={post.id}>
       <div className="post-header">
         <Link to={"/profile/" + person.id} className="profile-link">
           <div className="profile-picture">
-            <img src={person.profileImageRoute} alt="" />
+            <img src={person.profileImageId} alt="" />
           </div>
           <div className="profile-name">{person.username}</div>
         </Link>
