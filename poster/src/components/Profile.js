@@ -1,18 +1,37 @@
-import { useContext } from "react";
+import { useContext  } from "react";
 import { useParams } from "react-router";
 import { PersonContext } from '../contexts/PersonContext';
+import { Link } from 'react-router-dom';
+import { PostContext } from "../contexts/PostContext";
+import PostList from "./PostList";
+import axios from "axios"; 
 
 const Profile = () => {
-    const { people } = useContext(PersonContext);
+    const { people, currentPerson } = useContext(PersonContext);
+    const { posts } = useContext(PostContext);
     const { id } = useParams();
-    const person = people.find(person => person.id === parseInt(id));
+    const intId = parseInt(id);
+
+    const person = people.find(person => person.id === intId);
+    const isCurrentPersonProfile = currentPerson.id === intId ? true : false;
+    const personPosts = posts.filter(post => post.personId === intId);
+
+    const sendFollow = () => {
+        const follow = new FormData();
+
+        follow.append("followerId", currentPerson.id);
+
+        axios.post("/profile/"+id, follow)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    }
 
     return (
         <div className="profile-page">
             <img src={ person.profileBackgroundImageRoute } alt="" className="profile-background-image" />
             <div className="before-bio">
                 <img src={ person.profileImageRoute } alt="" className="profile-image" />
-                <button className="button edit-profile-button">Edit profile</button>
+                { isCurrentPersonProfile ? <Link to="/settings/profile" className="edit-profile-link"><button className="button">Edit profile</button></Link> : <button className="button profile-follow-button" onClick={ sendFollow }>Follow</button>}
             </div>
             <div className="bio">
                 <div className="profile-name">{ person.username }</div>
@@ -27,6 +46,7 @@ const Profile = () => {
                 <div className="profile-media">Media</div>
                 <div className="profile-adoms">Adoms</div>
             </div>
+            <PostList posts={ personPosts } />
         </div>
     )
 }

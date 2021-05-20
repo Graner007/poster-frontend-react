@@ -1,14 +1,10 @@
 import { useState, useContext } from "react";
-import { PostContext } from "../contexts/PostContext";
 import { PersonContext } from "../contexts/PersonContext";
-import { MediaContext } from "../contexts/MediaContext";
 import axios from "axios";
 import AddPostMedia from "./AddPostMedia";
 
 const AddPost = () => {
-  const { people } = useContext(PersonContext);
-
-  const currentProfle = people[0];
+  const { currentPerson } = useContext(PersonContext);
 
   const [message, setMessage] = useState("");
   const [media, setMedia] = useState([]);
@@ -47,7 +43,7 @@ const AddPost = () => {
     >
       <div className="add-post-header">
         <div className="add-post-profile-picture">
-          <img src={currentProfle.profileImageRoute} alt="" />
+          <img src={currentPerson.profileImageRoute} alt="" />
         </div>
         <textarea
           cols="55"
