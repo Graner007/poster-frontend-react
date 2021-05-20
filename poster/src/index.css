@@ -326,8 +326,10 @@ code {
   height: 50%;
 }
 
-.double-image-top-right {
-  object-fit: cover;
+.double-image-first div {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
 }
 
 .post-image {
