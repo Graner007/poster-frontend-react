@@ -14,7 +14,7 @@ const PostList = () => {
       .get("http://localhost:8080/posts")
       .then((data) => setPosts(data.data));
   };
-  console.log(posts);
+
   return (
     <div className="feed">
       {posts.map((post) => (
