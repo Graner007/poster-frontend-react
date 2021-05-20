@@ -3,6 +3,7 @@ import { PersonContext } from "../contexts/PersonContext";
 import { MediaContext } from "../contexts/MediaContext";
 import { Link } from "react-router-dom";
 import ImageContainer from "./ImageContainer";
+import { ReactComponent as DefaultProfile } from "../icons/profileicon.svg";
 
 const Post = ({ post, media }) => {
   const person = post.person;
@@ -12,7 +13,10 @@ const Post = ({ post, media }) => {
       <div className="post-header">
         <Link to={"/profile/" + person.id} className="profile-link">
           <div className="profile-picture">
-            <img src={person.profileImageId} alt="" />
+            {person.profileImageId !== 0 && (
+              <img src={person.profileImageId} alt="" />
+            )}
+            {person.profileImageId === 0 && <DefaultProfile />}
           </div>
           <div className="profile-name">{person.username}</div>
         </Link>
