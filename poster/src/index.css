@@ -280,6 +280,7 @@ code {
   overflow: hidden;
   padding-left: 10px;
   padding-right: 10px;
+  justify-content: center;
 }
 
 .post-image-container img {
@@ -293,7 +294,8 @@ code {
 }
 
 .single-image-container img {
-  max-width: 50%;
+  min-width: 50%;
+  max-width: 100%;
 }
 
 .double-image-container {
