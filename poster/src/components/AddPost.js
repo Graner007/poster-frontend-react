@@ -3,6 +3,7 @@ import { PostContext } from "../contexts/PostContext";
 import { PersonContext } from "../contexts/PersonContext";
 import { MediaContext } from "../contexts/MediaContext";
 import axios from "axios";
+import AddPostMedia from "./AddPostMedia";
 
 const AddPost = () => {
   const { people } = useContext(PersonContext);
@@ -31,6 +32,11 @@ const AddPost = () => {
 
     setMessage("");
     setMedia([]);
+  };
+
+  const removeMediaElem = (e) => {
+    const name = e.currentTarget.dataset.name;
+    setMedia(media.filter((item) => item.name !== name));
   };
 
   return (
@@ -73,6 +79,10 @@ const AddPost = () => {
         </div>
         <input type="submit" className="button add-post-submit" value="Post" />
       </div>
+      {media &&
+        media.map((medium) => (
+          <AddPostMedia medium={medium} handleRemove={removeMediaElem} />
+        ))}
     </form>
   );
 };

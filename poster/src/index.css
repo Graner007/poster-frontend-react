@@ -332,6 +332,20 @@ code {
   height: 50%;
 }
 
+.add-post-media-elem {
+  display: flex;
+  flex-direction: row;
+}
+
+.add-post-media-elem-name {
+  float: left;
+  margin-right: 15px;
+}
+
+.add-post-media-elem-delete:hover {
+  cursor: pointer;
+}
+
 .post-image {
   border-radius: 20px;
   width: 200px;
