@@ -3,7 +3,6 @@ import { PostContext } from "../contexts/PostContext";
 import { PersonContext } from "../contexts/PersonContext";
 import { MediaContext } from "../contexts/MediaContext";
 import axios from "axios";
-import { v4 as uuidv4 } from "uuid";
 
 const AddPost = () => {
   const { people } = useContext(PersonContext);
