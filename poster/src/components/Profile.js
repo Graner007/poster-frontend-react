@@ -2,13 +2,18 @@ import { useContext  } from "react";
 import { useParams } from "react-router";
 import { PersonContext } from '../contexts/PersonContext';
 import { Link } from 'react-router-dom';
+import { PostContext } from "../contexts/PostContext";
+import PostList from "./PostList";
 
 const Profile = () => {
     const { people, currentPerson } = useContext(PersonContext);
+    const { posts } = useContext(PostContext);
     const { id } = useParams();
-    const intId = parseInt(id); 
+    const intId = parseInt(id);
+
     const person = people.find(person => person.id === intId);
     const isCurrentPersonProfile = currentPerson.id === intId ? true : false;
+    const personPosts = posts.filter(post => post.personId === intId);
 
     return (
         <div className="profile-page">
@@ -30,6 +35,7 @@ const Profile = () => {
                 <div className="profile-media">Media</div>
                 <div className="profile-adoms">Adoms</div>
             </div>
+            <PostList posts={ personPosts } />
         </div>
     )
 }
