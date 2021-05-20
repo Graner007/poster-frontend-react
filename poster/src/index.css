@@ -279,9 +279,10 @@ code {
   display: flex;
   flex-direction: row;
   overflow: hidden;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   justify-content: center;
+  border-radius: 25px;
 }
 
 .post-image-container img {
