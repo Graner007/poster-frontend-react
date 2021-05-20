@@ -273,6 +273,61 @@ code {
   flex-wrap: nowrap;
 }
 
+.post-image-container {
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.post-image-container img {
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.single-image-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.single-image-container img {
+  max-width: 50%;
+}
+
+.double-image-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.double-image-first {
+  display: flex;
+  flex-direction: column;
+  min-width: 50%;
+}
+
+.double-image-first img {
+  height: 100%;
+}
+
+.double-image-second {
+  display: flex;
+  flex-direction: column;
+  min-width: 50%;
+}
+
+.double-image-second div {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+}
+
+.double-image-top-right {
+  object-fit: cover;
+}
+
 .post-image {
   border-radius: 20px;
   width: 200px;
@@ -490,5 +545,5 @@ textarea {
   align-items: center;
   margin-right: 10px;
   justify-content: space-around;
-  color: black
+  color: black;
 }
