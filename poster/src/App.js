@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar";
-import { Route, BrowserRouter as Router, useLocation, Switch } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import useWindowSize from "./util/useWindowSize";
 import BottomNavbar from "./components/BottomNavbar";
 import PersonContextProvider from "./contexts/PersonContext";

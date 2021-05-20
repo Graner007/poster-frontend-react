@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const AddPost = () => {
   const { addPost } = useContext(PostContext);
-  const { people, currentPerson } = useContext(PersonContext);
+  const { currentPerson } = useContext(PersonContext);
   const { addMedia } = useContext(MediaContext);
   let postId = uuidv4();
 

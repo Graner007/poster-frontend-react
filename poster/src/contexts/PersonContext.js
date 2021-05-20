@@ -13,7 +13,7 @@ const PersonContextProvider = (props) => {
             registrationDate: "2021.05.02.", 
             followersCount: 5, 
             followedCount: 3, 
-            profileImageRoute: "https://picsum.photos/300",
+            profileImageRoute: "https://picsum.photos/600",
             profileBackgroundImageRoute: "https://picsum.photos/800"
         },
         { 
@@ -27,6 +27,42 @@ const PersonContextProvider = (props) => {
             followedCount: 7, 
             profileImageRoute: "https://picsum.photos/400",
             profileBackgroundImageRoute: "https://picsum.photos/900"
+        },
+        { 
+            id: 3,
+            username: "Űrlord",
+            password: 'qwert',
+            description: '', 
+            birthDate: "1997.5.3", 
+            registrationDate: "2021.04.1.", 
+            followersCount: 10, 
+            followedCount: 2, 
+            profileImageRoute: "https://picsum.photos/300",
+            profileBackgroundImageRoute: "https://picsum.photos/950"
+        },
+        { 
+            id: 4,
+            username: "KitKat",
+            password: 'bagoly',
+            description: '', 
+            birthDate: "1999.8.11", 
+            registrationDate: "2021.04.24.", 
+            followersCount: 13, 
+            followedCount: 4, 
+            profileImageRoute: "https://picsum.photos/200",
+            profileBackgroundImageRoute: "https://picsum.photos/750"
+        },
+        { 
+            id: 5,
+            username: "Uno",
+            password: 'zuiop',
+            description: '', 
+            birthDate: "1995.11.9", 
+            registrationDate: "2021.04.25.", 
+            followersCount: 9, 
+            followedCount: 5, 
+            profileImageRoute: "https://picsum.photos/100",
+            profileBackgroundImageRoute: "https://picsum.photos/650"
         }
     ]);
 
