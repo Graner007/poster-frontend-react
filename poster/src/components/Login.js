@@ -8,10 +8,9 @@ const Login = () => {
     const sendLogin = (e) => {
         e.preventDefault();
 
-        const person = {
-            emailOrUsername,
-            password
-        }
+        const person = new FormData();
+        person.append("username", emailOrUsername);
+        person.append("password", password);
     }
 
     return (

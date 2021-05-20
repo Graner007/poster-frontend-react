@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar";
-import { Route, BrowserRouter as Router, useLocation, Switch } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import useWindowSize from "./util/useWindowSize";
 import BottomNavbar from "./components/BottomNavbar";
 import PersonContextProvider from "./contexts/PersonContext";
@@ -11,6 +11,7 @@ import Profile from "./components/Profile";
 import Feed from "./components/Feed";
 import Index from "./components/Index";
 import Login from "./components/Login";
+import EditProfile from "./components/EditProfile";
 
 function App() {
   const [width] = useWindowSize();
@@ -45,6 +46,9 @@ function App() {
                   </Route>
                   <Route path="/profile/:id" exact>
                     <Profile />
+                  </Route>
+                  <Route path="/settings/profile" exact>
+                    <EditProfile />
                   </Route>
               </div> }
           { width > 1018 && !contentRoutes.includes(url) && <RightSidebar /> }

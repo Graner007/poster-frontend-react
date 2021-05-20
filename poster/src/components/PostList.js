@@ -1,10 +1,6 @@
-import { useContext } from "react";
 import Post from "./Post";
-import { PostContext} from "../contexts/PostContext";
  
-const PostList = () => {
-    const { posts } = useContext(PostContext);
-
+const PostList = ({ posts }) => {
     return (
         <div className="feed">
             { posts.map(post => (

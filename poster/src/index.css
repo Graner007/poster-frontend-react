@@ -201,6 +201,7 @@ code {
   position: sticky;
   top: 0;
   background-color: white;
+  z-index: 1000;
 }
 
 .search-bar {
@@ -339,6 +340,7 @@ code {
   margin-top: 5px;
 }
 
+.edit-profile-modal-header,
 .add-post-header,
 .add-post-media {
   display: flex;
@@ -418,7 +420,6 @@ textarea {
   width: inherit;
   border-bottom: 0.5px solid #dcdcdc;
   width: 100%;
-  z-index: -1;
 }
 
 .profile-image {
@@ -437,8 +438,11 @@ textarea {
   margin: 10px;
 }
 
-.edit-profile-button {
+.profile-follow-button,
+.edit-profile-link {
   margin-left: auto;
+  color: #eee;
+  text-decoration: none;
 }
 
 .bio {
@@ -562,14 +566,16 @@ textarea {
   color: blue;
 }
 
-.register-input {
+.input {
   padding: 10px;
   border: 1px solid #888;
+  border-radius: 15px;
   margin: 10px;
   outline: none;
   font-size: 20px;
 }
 
+.edit-profile-inputs,
 .login-field,
 .register-button,
 .register-inputs {
@@ -590,12 +596,12 @@ textarea {
   border-radius: 15px;  
 }
 
-.register-input:focus,
+.input:focus,
 .login-input:focus {
   border: 2px solid var(--postGreen);
 }
 
-.register-input:focus::placeholder,
+.input:focus::placeholder,
 .login-input:focus::placeholder {
   color: var(--postGreen);
 }
@@ -603,4 +609,18 @@ textarea {
 .content {
   max-width: 600px;
   margin: 0 auto;
+}
+
+.edit-profile-modal-header {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-profile-title {
+  margin-right: auto;
+  margin-left: 25px;
+}
+
+.edit-profile-inputs {
+  justify-content: space-between;
 }
