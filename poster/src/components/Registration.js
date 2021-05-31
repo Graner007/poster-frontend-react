@@ -39,20 +39,20 @@ const Registration = () => {
             birthDate
         }
 
-        axios.post("/registration", person)
+        axios.post("http://localhost:8080/registration", person)
         .then(res => {
-            switch(res.data) {
-                case "success":
-                    setError(false);
-                    setErrorMessage("");
-                    setRedirect(true);
-                    break;
-                default:
-                    setErrorMessage(res.data);
-                    setError(true);
+            if (res.status === 200) {
+                setError(false);
+                setErrorMessage("");
+                setRedirect(true);
             }
         })
-        .catch(err => console.log(err));
+        .catch(error => {
+            if (error.response) {
+              setErrorMessage(error.response.data);
+              setError(true);
+            }
+        });
     }
 
     return (
@@ -69,8 +69,8 @@ const Registration = () => {
                     <div className="register-button">
                         <input type="submit" className="button" value="Registration" />
                     </div>
-                    { error && <div style={{ color: 'red' }}>{ errorMessage }</div> }
-                    { redirect && <Redirect to="/" /> }
+                    { error && <div style={{ color: 'red', padding: '10px' }}>{ errorMessage }</div> }
+                    { redirect && <Redirect to="/login" /> }
                 </form>
             </div>
         </div>

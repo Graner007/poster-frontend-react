@@ -7,12 +7,12 @@ const SearchBar = () => {
     const [searchPhrase, setSearchPhrase] = useState("");
     const [onFocus, setOnfocus] = useState(false); 
 
-    useEffect(() => {
+    /* useEffect(() => {
         axios.post("/home", searchPhrase)
             .then(res => setPeople(res.data))
             .catch(err => console.log(err));
         
-    }, [searchPhrase]);
+    }, [searchPhrase]); */
     
     return (
         <div className="search-bar">
