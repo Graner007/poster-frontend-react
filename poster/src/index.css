@@ -702,3 +702,7 @@ textarea {
 .edit-profile-inputs {
   align-items: flex-start;
 }
+
+.login-error-credentials {
+  color: red;
+}
