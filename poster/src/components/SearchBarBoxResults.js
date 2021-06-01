@@ -1,10 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { Link } from "react-router-dom";
 
 const SearchBarBoxResults = ({ people }) => {
     return (
         <div className="search-bar-box">
             { people.map(person => (
-                <h3 key={ person.id }>{ person.username }</h3>
+                <Link to={"/profile/" + person.id} className="profile-link">
+                    <h3 key={ person.id }>{ person.username }</h3>
+                </Link>
             )) }
         </div>
     )

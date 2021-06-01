@@ -1,6 +1,3 @@
-import { useContext } from "react";
-import { PersonContext } from "../contexts/PersonContext";
-import { MediaContext } from "../contexts/MediaContext";
 import { Link } from "react-router-dom";
 import ImageContainer from "./ImageContainer";
 import { ReactComponent as DefaultProfile } from "../icons/profileicon.svg";
