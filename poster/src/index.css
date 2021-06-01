@@ -490,21 +490,20 @@ textarea {
 }
 
 .profile-background-image {
-  height: 300px;
-  width: inherit;
   border-bottom: 0.5px solid #dcdcdc;
   width: 100%;
-  cursor: pointer;
+  max-height: 300px;
+  object-fit: cover;
+  object-position: 50% 50%;
 }
 
 .profile-image {
-  border-radius: 125px;
-  width: 125px;
-  height: 125px;
+  border-radius: 50%;
   position: absolute;
-  top: 280px;
+  top: 260px;
   border: 5px solid #fff;
-  cursor: pointer;
+  width: 150px;
+  height: 150px;
 }
 
 .edit-profile-image {
@@ -551,6 +550,7 @@ textarea {
 
 .profile-page {
   border: 0.5px solid #dcdcdc;
+  width: 598px;
 }
 
 .profile-nav {
