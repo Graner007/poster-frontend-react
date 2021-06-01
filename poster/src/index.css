@@ -456,6 +456,7 @@ textarea {
   border-radius: 30px;
   display: flex;
   flex-direction: column;
+  padding: 10px;
 }
 
 .who-to-follow-profile-image {
@@ -470,10 +471,9 @@ textarea {
   justify-content: flex-start;
 }
 
-.who-to-follow-usename {
+.who-to-follow-username {
   font-weight: bold;
   font-size: 16px;
-  flex: 0.5 1;
 }
 
 .profile-card {
@@ -486,7 +486,7 @@ textarea {
 }
 
 .follow-button {
-  flex: 0.3 1;
+  margin-left: auto;
 }
 
 .profile-background-image {
