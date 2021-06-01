@@ -39,7 +39,7 @@ const Registration = () => {
             birthDate
         }
 
-        axios.post("http://localhost:8080/registration", person)
+        axios.post("/registration", person)
         .then(res => {
             if (res.status === 200) {
                 setError(false);
