@@ -265,7 +265,7 @@ code {
 }
 
 .post-date {
-  flex: 0 2 50px;
+  font-size: 12px;
 }
 
 .post-bottom {
