@@ -12,6 +12,7 @@ import Feed from "./components/Feed";
 import Index from "./components/Index";
 import Login from "./components/Login";
 import EditProfile from "./components/EditProfile";
+import Error from "./components/Error";
 
 function App() {
   const [width] = useWindowSize();
@@ -39,9 +40,10 @@ function App() {
               </Switch>
             </div> }
             { !contentRoutes.includes(url) && 
-              <div className="container"> 
+              <div className="container">
                 <HomeHeader title={ headerTitle } />
-                <Route path="/home" exact>
+                <Switch>
+                  <Route path="/home" exact>
                     <Feed />
                   </Route>
                   <Route path="/profile/:id" exact>
@@ -50,6 +52,10 @@ function App() {
                   <Route path="/settings/profile" exact>
                     <EditProfile />
                   </Route>
+                  <Route path="*">
+                    <Error />
+                  </Route>
+                </Switch>
               </div> }
           { width > 1018 && !contentRoutes.includes(url) && <RightSidebar /> }
         </Router>
