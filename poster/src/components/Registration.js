@@ -44,7 +44,7 @@ const Registration = () => {
             if (res.status === 200) {
                 setError(false);
                 setErrorMessage("");
-                setRedirect(true);
+                document.location.href = "/login";
             }
         })
         .catch(error => {
@@ -70,7 +70,7 @@ const Registration = () => {
                         <input type="submit" className="button" value="Registration" />
                     </div>
                     { error && <div style={{ color: 'red', padding: '10px' }}>{ errorMessage }</div> }
-                    { redirect && <Redirect to="/login" /> }
+                    { redirect && <Redirect to="/" /> }
                 </form>
             </div>
         </div>
