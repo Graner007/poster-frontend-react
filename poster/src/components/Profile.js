@@ -30,7 +30,9 @@ const Profile = () => {
         <div className="profile-page">
             <img src={ person.profileBackgroundImageRoute } alt="" className="profile-background-image" />
             <div className="before-bio">
-                <img src={ person.profileImageRoute } alt="" className="profile-image" />
+                <div className="profile-image-container">
+                    <img src={ person.profileImageRoute } alt="" className="profile-image" />
+                </div>
                 { isCurrentPersonProfile ? <Link to="/settings/profile" className="edit-profile-link"><button className="button">Edit profile</button></Link> : <button className="button profile-follow-button" onClick={ sendFollow }>Follow</button>}
             </div>
             <div className="bio">
