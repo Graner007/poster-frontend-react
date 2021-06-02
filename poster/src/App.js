@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import useWindowSize from "./util/useWindowSize";
 import BottomNavbar from "./components/BottomNavbar";
 import PersonContextProvider from "./contexts/PersonContext";
@@ -14,6 +14,7 @@ import Login from "./components/Login";
 import EditProfile from "./components/EditProfile";
 import Logout from "./components/Logout";
 import { useLocation } from "react-router-dom";
+import Error from "./components/Error";
 
 function App() {
   const [width] = useWindowSize();
@@ -50,6 +51,9 @@ function App() {
               </Route>
               <Route path="/" exact>
                 <Index />
+              </Route>
+              <Route path="*">
+                <Error />
               </Route>
             </Switch>
           </div>

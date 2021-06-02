@@ -5,10 +5,14 @@ import axios from "axios";
 const SearchBar = () => {
     const [people, setPeople] = useState([]);
     const [searchPhrase, setSearchPhrase] = useState("");
-    const [onFocus, setOnfocus] = useState(false); 
+    const [onFocus, setOnfocus] = useState(false);
+    
+    const data = new FormData();
+
+    data.append("searchPhrase", searchPhrase);
 
     useEffect(() => {
-        axios.post("/home", searchPhrase)
+        axios.post("/search", data)
             .then(res => setPeople(res.data))
             .catch(err => console.log(err));
         
@@ -17,7 +21,7 @@ const SearchBar = () => {
     return (
         <div className="search-bar">
             <i className="fa fa-search"></i><input type="text" onFocus={() => setOnfocus(true)} onChange={(e) => setSearchPhrase(e.target.value)} placeholder="Search Poster" style={{ fontSize: "20px" }}/>
-            { onFocus && <SearchBarBoxResults people={ people } /> }
+            { onFocus && searchPhrase.length > 0 && <SearchBarBoxResults people={ people } /> }
         </div>
     )
 }

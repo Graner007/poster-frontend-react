@@ -265,7 +265,7 @@ code {
 }
 
 .post-date {
-  flex: 0 2 50px;
+  font-size: 12px;
 }
 
 .post-bottom {
@@ -456,6 +456,7 @@ textarea {
   border-radius: 30px;
   display: flex;
   flex-direction: column;
+  padding: 10px;
 }
 
 .who-to-follow-profile-image {
@@ -470,10 +471,9 @@ textarea {
   justify-content: flex-start;
 }
 
-.who-to-follow-usename {
+.who-to-follow-username {
   font-weight: bold;
   font-size: 16px;
-  flex: 0.5 1;
 }
 
 .profile-card {
@@ -486,25 +486,24 @@ textarea {
 }
 
 .follow-button {
-  flex: 0.3 1;
+  margin-left: auto;
 }
 
 .profile-background-image {
-  height: 300px;
-  width: inherit;
   border-bottom: 0.5px solid #dcdcdc;
   width: 100%;
-  cursor: pointer;
+  max-height: 300px;
+  object-fit: cover;
+  object-position: 50% 50%;
 }
 
 .profile-image {
-  border-radius: 125px;
-  width: 125px;
-  height: 125px;
+  border-radius: 50%;
   position: absolute;
-  top: 280px;
+  top: 260px;
   border: 5px solid #fff;
-  cursor: pointer;
+  width: 150px;
+  height: 150px;
 }
 
 .edit-profile-image {
@@ -551,6 +550,7 @@ textarea {
 
 .profile-page {
   border: 0.5px solid #dcdcdc;
+  width: 598px;
 }
 
 .profile-nav {

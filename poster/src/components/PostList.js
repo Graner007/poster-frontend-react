@@ -11,7 +11,7 @@ const PostList = () => {
 
   const getPosts = async () => {
     await axios
-      .get("http://localhost:8080/posts")
+      .get("/posts")
       .then((data) => setPosts(data.data));
   };
 

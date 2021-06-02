@@ -1,12 +1,12 @@
-import { useContext } from "react";
-import { PersonContext } from "../contexts/PersonContext";
-import { MediaContext } from "../contexts/MediaContext";
 import { Link } from "react-router-dom";
 import ImageContainer from "./ImageContainer";
 import { ReactComponent as DefaultProfile } from "../icons/profileicon.svg";
+import moment from "moment";
 
 const Post = ({ post, media }) => {
   const person = post.person;
+  
+  const date = moment(person.postDate).fromNow();
 
   return (
     <div className="post" key={post.id}>
@@ -20,7 +20,7 @@ const Post = ({ post, media }) => {
           </div>
           <div className="profile-name">{person.username}</div>
         </Link>
-        <div className="post-date">{post.postDate}</div>
+        <div className="post-date">{date}</div>
       </div>
       <div className="post-middle">
         <div className="post-message" style={{ fontSize: "20px" }}>

@@ -51,20 +51,20 @@ const EditProfile = () => {
         if (newBio !== currentPerson.description)
             newPerson.append("description", newBio);
 
-        axios.post("/settings/profile", newPerson)
+        axios.put("/settings/profile", newPerson)
             .then(res => {
-                switch (res.data) {
-                    case "success":
-                        setError(false);
-                        setErrorMessage("");
-                        setRedirect(true);
-                        break;
-                    default:
-                        setErrorMessage(res.data);
-                        setError(true);
+                if (res.status === 200) {
+                    setError(false);
+                    setErrorMessage("");
+                    setRedirect(true);
                 }
             })
-            .catch(err => console.log(err));
+            .catch(error => {
+                if (error.response) {
+                setErrorMessage(error.response.data);
+                setError(true);
+                }
+            });
     }
 
     return (
@@ -88,7 +88,7 @@ const EditProfile = () => {
                         <input type="text" style={{ marginTop: "75px" }} className="input" value={ newUsername } placeholder="Username" name="new-username" id="new-username" required onChange={(e) => setNewUsername(e.target.value)} /><br />
                         <textarea className="input" value={ newBio } name="new-bio" id="new-bio" cols="30" rows="10" onChange={(e) => setNewBio(e.target.value)}></textarea><br />
                     </div>
-                    { error && <div style={{ color: 'red' }}>{ errorMessage }</div> }
+                    { error && <div style={{ color: 'red', padding: '10px' }}>{ errorMessage }</div> }
                     { redirect && <Redirect to={ '/profile/' + currentPerson.id } /> }
                 </form>
             </div>
