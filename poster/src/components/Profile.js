@@ -2,7 +2,8 @@ import { useEffect, useState  } from "react";
 import { useParams } from "react-router";
 import { Link } from 'react-router-dom';
 import PostList from "./PostList";
-import axios from "axios"; 
+import axios from "axios";
+import moment from "moment";
 
 const Profile = () => {
     const { id } = useParams();
@@ -10,7 +11,6 @@ const Profile = () => {
 
     const [person, setPerson] = useState({});
     const [isCurrentPersonProfile, setIsCurrentPersonProfile] = useState(false);
-    //const personPosts = posts.filter(post => post.personId === intId);
 
     useEffect(() => {
         axios.get("/profile/"+id)
@@ -38,7 +38,7 @@ const Profile = () => {
             </div>
             <div className="bio">
                 <div className="profile-name">{ person.username }</div>
-                <div className="profile-registration-date"><i className="fa fa-calendar" /> Joined { person.registrationDate }</div>
+                <div className="profile-registration-date"><i className="fa fa-calendar" /> Joined { moment(person.registrationDate).format("MM-DD-YYYY") }</div>
                 <div className="follow">
                     <div className="following"><b>{ person.followedCount }</b> Following</div>
                     <div className="follower"><b>{ person.followersCount }</b> Follower</div>

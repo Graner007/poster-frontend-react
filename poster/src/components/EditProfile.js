@@ -1,11 +1,11 @@
 import { useState, useEffect, useContext } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useLocation } from 'react-router-dom';
 import { PersonContext } from '../contexts/PersonContext';
 import axios from "axios";
 
 const EditProfile = () => {
     const { currentPerson } = useContext(PersonContext);
-    const url = window.location.pathname;
+    const url = useLocation().pathname;
 
     const [view, setView] = useState('');
     const [redirect, setRedirect] = useState(false);
