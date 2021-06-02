@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Redirect } from 'react-router-dom';
+import { Redirect, useLocation } from 'react-router-dom';
 
 const Registration = () => {
     const [username, setUsername] = useState("");
@@ -12,7 +12,7 @@ const Registration = () => {
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [redirect, setRedirect] = useState(false);
-    const url = window.location.pathname;
+    const url = useLocation().pathname;
 
     useEffect(() => {
         switch (url) {
