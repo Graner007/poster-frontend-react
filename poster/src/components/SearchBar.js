@@ -8,14 +8,14 @@ const SearchBar = () => {
     const [onFocus, setOnfocus] = useState(false);
     
     const data = new FormData();
-
     data.append("searchPhrase", searchPhrase);
 
     useEffect(() => {
-        axios.post("/search", data)
+        if (searchPhrase.length > 0) {
+            axios.post("/search", data)
             .then(res => setPeople(res.data))
             .catch(err => console.log(err));
-        
+        }  
     }, [searchPhrase]);
     
     return (

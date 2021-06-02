@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Registration from "./Registration";
 
 const Index = () => {
   return (
@@ -13,7 +12,6 @@ const Index = () => {
       <Link to="/login" className="login-link">
         <button className="button index-button">Log in</button>
       </Link>
-      <Registration />
     </div>
   );
 };

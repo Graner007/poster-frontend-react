@@ -15,6 +15,7 @@ import EditProfile from "./components/EditProfile";
 import Logout from "./components/Logout";
 import { useLocation } from "react-router-dom";
 import Error from "./components/Error";
+import Registration from "./components/Registration";
 
 function App() {
   const [width] = useWindowSize();
@@ -48,6 +49,9 @@ function App() {
               </Route>
               <Route path="/login" exact>
                 <Login />
+              </Route>
+              <Route path="/registration" exact>
+                <Registration />
               </Route>
               <Route path="/" exact>
                 <Index />

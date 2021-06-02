@@ -28,7 +28,7 @@ const Login = () => {
         setLoggedIn(true);
       })
       .catch((data) => {
-        if (data.response.status == 403) {
+        if (data.response.status === 403) {
           setWrongCredentials(true);
         }
       });
