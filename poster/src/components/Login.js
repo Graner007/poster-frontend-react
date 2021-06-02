@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [wrongCredentials, setWrongCredentials] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const sendLogin = (e) => {
     e.preventDefault();
@@ -24,7 +25,7 @@ const Login = () => {
     axios
       .post("/auth/login", person, config)
       .then((data) => {
-        console.log(data);
+        setLoggedIn(true);
       })
       .catch((data) => {
         if (data.response.status == 403) {
@@ -39,7 +40,7 @@ const Login = () => {
       <input
         type="text"
         className="input"
-        placeholder="Email or Username"
+        placeholder="Username"
         name="name"
         id="name"
         required
@@ -64,6 +65,7 @@ const Login = () => {
       {wrongCredentials && (
         <div className="login-error-credentials">Wrong credentials!</div>
       )}
+      {loggedIn && <Redirect to="/home" />}
     </form>
   );
 };
