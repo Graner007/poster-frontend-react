@@ -10,7 +10,7 @@ const NavbarLogoutItem = (props) => {
     <div className="navbar-logout-container">
       <div className="navbar-profile-container" onClick={() => setOpen(!open)}>
         <img
-          src={props.src}
+          src={ props.profileImageId ? props.profileImageId : "/media/default-image" }
           className="navbar-profile-picture"
           alt={props.name}
         />
