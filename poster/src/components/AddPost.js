@@ -22,7 +22,6 @@ const AddPost = () => {
       formData.append("files", medium);
     }
     formData.append("message", message);
-    formData.append("person_id", "1");
 
     axios.post("/posts/add", formData);
 
