@@ -10,23 +10,28 @@ const Navbar = () => {
   const [person, setPerson] = useState({});
 
   useEffect(() => {
-    axios.get("/profile")
-        .then(res => {
-            setPerson(res.data);
-        })
-        .catch(err => console.log(err));
-}, []);
+    axios
+      .get("/profile")
+      .then((res) => {
+        setPerson(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div className="navbar">
       <div className="navbar-item-container">
         <NavbarItem to="/home" icon={<HomeIcon />} text="Home" />
         <NavbarItem to="/explore" icon={<SearchIcon />} text="Explore" />
-        <NavbarItem to={ '/profile/' + person.id } icon={<ProfileIcon />} text="Profile" />
+        <NavbarItem
+          to={"/profile/" + person.id}
+          icon={<ProfileIcon />}
+          text="Profile"
+        />
       </div>
       <NavbarLogoutItem
-        src={ person.profileImageId ? person.profileImageId : "/media/default-image" }
-        name={ person.username }
+        profileImageId={person.profileImageId}
+        name={person.username}
       />
     </div>
   );
