@@ -662,6 +662,7 @@ textarea {
   margin: 5px;
   outline: none;
   font-size: 20px;
+  overflow: hidden;
 }
 
 .edit-profile-inputs,
