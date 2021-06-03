@@ -2,11 +2,36 @@ import { Link } from "react-router-dom";
 import ImageContainer from "./ImageContainer";
 import { ReactComponent as DefaultProfile } from "../icons/profileicon.svg";
 import moment from "moment";
+import { useState } from "react";
+import axios from "axios";
 
 const Post = ({ post, media }) => {
+  const [isLiked, setLiked] = useState(post.liked);
+  const [isShared, setShared] = useState(post.shared);
+
   const person = post.person;
 
   const date = moment(person.postDate).fromNow();
+
+  const likeEvent = (e) => {
+    e.preventDefault();
+    if (isLiked) {
+      axios.delete("/like/" + post.id);
+    } else {
+      axios.post("/like/" + post.id);
+    }
+    setLiked(!isLiked);
+  };
+
+  const shareEvent = (e) => {
+    e.preventDefault();
+    if (isShared) {
+      axios.delete("/share/" + post.id);
+    } else {
+      axios.post("/share/" + post.id);
+    }
+    setShared(!isShared);
+  };
 
   return (
     <div className="post" key={post.id}>
@@ -31,13 +56,19 @@ const Post = ({ post, media }) => {
       <br />
       <br />
       <div className="post-bottom">
-        <div className="adom-count">
+        <div
+          className={isLiked === true ? "adom-count liked" : "adom-count"}
+          onClick={likeEvent}
+        >
           <i className="fa fa-heart" /> {post.adomCount}
         </div>
         <div className="comment-count">
           <i className="fa fa-comment" /> {post.commentCount}
         </div>
-        <div className="share-count">
+        <div
+          className={isShared === true ? "share-count shared" : "share-count"}
+          onClick={shareEvent}
+        >
           <i className="fa">&#xf1e0;</i> {post.shareCount}
         </div>
       </div>
