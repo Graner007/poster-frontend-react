@@ -1,10 +1,17 @@
-import { useState, useContext } from "react";
-import { PersonContext } from "../contexts/PersonContext";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import AddPostMedia from "./AddPostMedia";
 
 const AddPost = () => {
-  const { currentPerson } = useContext(PersonContext);
+  const [person, setPerson] = useState({});
+
+  useEffect(() => {
+    axios.get("/profile")
+        .then(res => {
+            setPerson(res.data);
+        })
+        .catch(err => console.log(err));
+}, []);
 
   const [message, setMessage] = useState("");
   const [media, setMedia] = useState([]);
@@ -42,7 +49,7 @@ const AddPost = () => {
     >
       <div className="add-post-header">
         <div className="add-post-profile-picture">
-          <img src={currentPerson.profileImageRoute} alt="" />
+          <img src={person.profileImageRoute} alt="" />
         </div>
         <textarea
           cols="55"

@@ -74,15 +74,15 @@ const EditProfile = () => {
                     </div>
                     <div className="edit-profile-inputs">
                         <label htmlFor="edit-profile-background-image">
-                            <img src={ newProfileBackgroundImageRoute } alt="" className="profile-background-image" />
+                            <img src={ person.profileBackgroundImageId ? person.profileBackgroundImageId : "/media/default-image" } alt="" className="profile-background-image" />
                         </label>
                         <input style={{ display: "none" }} value={person.profileImageRoute} type="file" className="edit-profile-background-image" id="edit-profile-background-image" accept="image/jpeg, image/png, image/jpg" onChange={(e) => setNewProfileBackgroundImageRoute(e.target.value)} />
                         <label htmlFor="edit-profile-image">
-                            <img src={ newProfileImageRoute } alt="" className="edit-profile-image" />
+                            <img src={ person.profileImageId ? person.profileImageId : "/media/default-image" } alt="" className="edit-profile-image" />
                         </label>
                         <input style={{ display: "none" }}  type="file" className="edit-profile-image" id="edit-profile-image" accept="image/jpeg, image/png, image/jpg" onChange={(e) => setNewProfileImageRoute(e.target.value)} />
                         <input type="text" style={{ marginTop: "75px" }} className="input" value={ newUsername } name="new-username" id="new-username" required onChange={(e) => setNewUsername(e.target.value)} /><br />
-                        <textarea className="input" value={ newBio } name="new-bio" id="new-bio" cols="20" rows="10" onChange={(e) => setNewBio(e.target.value)}></textarea><br />
+                        <textarea className="input" value={ newBio } name="new-bio" id="new-bio" cols="20" rows="auto" onChange={(e) => setNewBio(e.target.value)}></textarea><br />
                     </div>
                     { error && <div style={{ color: 'red', padding: '10px' }}>{ errorMessage }</div> }
                     { redirect && <Redirect to={ '/profile/' + person.id } /> }

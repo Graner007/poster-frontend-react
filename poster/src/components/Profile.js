@@ -28,10 +28,10 @@ const Profile = () => {
 
     return (
         <div className="profile-page">
-            <img src={ person.profileBackgroundImageRoute } alt="" className="profile-background-image" />
+            <img src={ person.profileBackgroundImageId ? person.profileBackgroundImageId : "/media/default-image" } alt="" className="profile-background-image" />
             <div className="before-bio">
                 <div className="profile-image-container">
-                    <img src={ person.profileImageRoute } alt="" className="profile-image" />
+                    <img src={ person.profileImageId ? person.profileImageId : "/media/default-image" } alt="" className="profile-image" />
                 </div>
                  { isCurrentPersonProfile ? <Link to="/settings/profile" className="edit-profile-link"><button className="button">Edit profile</button></Link> : <button className="button profile-follow-button" onClick={ sendFollow }>Follow</button>}
             </div>

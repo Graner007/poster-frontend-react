@@ -13,7 +13,6 @@ const Navbar = () => {
     axios.get("/profile")
         .then(res => {
             setPerson(res.data);
-            console.log(res.data);
         })
         .catch(err => console.log(err));
 }, []);
@@ -25,10 +24,8 @@ const Navbar = () => {
         <NavbarItem to="/explore" icon={<SearchIcon />} text="Explore" />
         <NavbarItem to={ '/profile/' + person.id } icon={<ProfileIcon />} text="Profile" />
       </div>
-
-      {/*TODO: Implement with login and registration */}
       <NavbarLogoutItem
-        src={ person.profileImageRoute }
+        src={ person.profileImageId ? person.profileImageId : "/media/default-image" }
         name={ person.username }
       />
     </div>
