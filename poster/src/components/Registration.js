@@ -1,32 +1,22 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
-import { Redirect, useLocation } from 'react-router-dom';
+import { useState } from "react";
+import { Redirect, useHistory } from 'react-router-dom';
 
 const Registration = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [birthDate, setBirthDate] = useState();
-    const [view, setView] = useState("");
+    const [view, setView] = useState("block");
 
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [redirect, setRedirect] = useState(false);
-    const url = useLocation().pathname;
-
-    useEffect(() => {
-        switch (url) {
-            case "/registration":
-                setView("block");
-                break;
-            default:
-                setView("none");    
-        }
-    }, [url]);
+    const history = useHistory();
 
     const closeRegistrationDialog = () => {
         setView("none");
-        setRedirect(true);
+        history.goBack();
     }
 
     const sendRegistration = (e) => {
@@ -44,7 +34,7 @@ const Registration = () => {
             if (res.status === 200) {
                 setError(false);
                 setErrorMessage("");
-                document.location.href = "/login";
+                setRedirect(true);
             }
         })
         .catch(error => {
@@ -70,7 +60,7 @@ const Registration = () => {
                         <input type="submit" className="button" value="Registration" />
                     </div>
                     { error && <div style={{ color: 'red', padding: '10px' }}>{ errorMessage }</div> }
-                    { redirect && <Redirect to="/" /> }
+                    { redirect && <Redirect to="/login" /> }
                 </form>
             </div>
         </div>

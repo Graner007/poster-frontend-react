@@ -8,7 +8,8 @@ const SearchBarBoxResults = ({ people }) => {
                 <Link to={"/profile/" + person.id} className="profile-link">
                     <h3 key={ person.id }>{ person.username }</h3>
                 </Link>
-            )) }
+            ))}
+
         </div>
     )
 }
