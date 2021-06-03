@@ -49,7 +49,7 @@ const AddPost = () => {
     >
       <div className="add-post-header">
         <div className="add-post-profile-picture">
-          <img src={person.profileImageRoute} alt="" />
+          <img src={ person.profileImageId ? "/media/" + person.profileImageId : "/media/default-image" } alt="" />
         </div>
         <textarea
           cols="55"

@@ -8,10 +8,11 @@ const EditProfile = () => {
     const [redirect, setRedirect] = useState(false);
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
-    const [newProfileImageRoute, setNewProfileImageRoute] = useState();
-    const [newProfileBackgroundImageRoute, setNewProfileBackgroundImageRoute] = useState();
+    const [newProfileImageId, setNewProfileImageId] = useState();
+    const [newProfileBackgroundImageId, setNewProfileBackgroundImageId] = useState();
     const [newUsername, setNewUsername] = useState("");
     const [newBio, setNewBio] = useState();
+    const url = "http://localhost:8080/media/";
 
     const closeEditProfileDialog = () => {
         setView("none");
@@ -22,24 +23,26 @@ const EditProfile = () => {
         axios.get("/settings/profile")
         .then(res => {
             setPerson(res.data);
-            setNewProfileImageRoute(res.data.profileImageRoute);
-            setNewProfileBackgroundImageRoute(res.data.profileBackgroundImageRoute);
+            setNewProfileImageId(res.data.profileImageId);
+            setNewProfileBackgroundImageId(res.data.profileBackgroundImageId);
             setNewUsername(res.data.username);
             setNewBio(res.data.description);
         })
         .catch(err => console.log(err));
     }, []);
 
-    const sendEdit = () => {
+    const sendEdit = (e) => {
+        e.preventDefault();
+
         const newPerson = new FormData();
 
         newPerson.append("id", person.id);
 
-        if (newProfileImageRoute !== person.profileImageRoute)
-            newPerson.append("profileImageRoute", newProfileImageRoute);
+        if (newProfileImageId !== person.profileImageId)
+            newPerson.append("profileImageId", newProfileImageId);
         
-        if (newProfileBackgroundImageRoute !== person.profileBackgroundImageRoute)
-            newPerson.append("profileBackgroundImageRoute", newProfileBackgroundImageRoute);
+        if (newProfileBackgroundImageId !== person.profileBackgroundImageRoute)
+            newPerson.append("profileBackgroundImageId", newProfileBackgroundImageId);
 
         if (newUsername !== person.username)
             newPerson.append("username", newUsername);
@@ -66,27 +69,27 @@ const EditProfile = () => {
     return (
         <div className="modal" style={{ display: view }}>
             <div className="modal-content">
-                <div className="edit-profile-field">
+                <form className="edit-profile-field" encType="multipart/form-data" onSubmit={sendEdit}>
                     <div className="edit-profile-modal-header">
                         <span className="close" onClick={ closeEditProfileDialog }>&times;</span>
                         <h2 className="edit-profile-title">Edit Profile</h2>
-                        <button className="button" onClick={ sendEdit }>Save</button>
+                        <button className="button" type="submit">Save</button>
                     </div>
                     <div className="edit-profile-inputs">
                         <label htmlFor="edit-profile-background-image">
-                            <img src={ person.profileBackgroundImageId ? person.profileBackgroundImageId : "/media/default-image" } alt="" className="profile-background-image" />
+                            <img src={ person.profileBackgroundImageId > 0 ? url + person.profileBackgroundImageId : url + "default-image" } alt="" className="profile-background-image" />
                         </label>
-                        <input style={{ display: "none" }} value={person.profileImageRoute} type="file" className="edit-profile-background-image" id="edit-profile-background-image" accept="image/jpeg, image/png, image/jpg" onChange={(e) => setNewProfileBackgroundImageRoute(e.target.value)} />
+                        <input style={{ display: "none" }} value={person.profileImageRoute} type="file" accept="image/gif, image/jpeg, image/png, image/jpg" className="edit-profile-background-image" id="edit-profile-background-image" accept="image/jpeg, image/png, image/jpg" onChange={(e) => setNewProfileBackgroundImageId(e.target.files[0])} />
                         <label htmlFor="edit-profile-image">
-                            <img src={ person.profileImageId ? person.profileImageId : "/media/default-image" } alt="" className="edit-profile-image" />
+                            <img src={ person.profileImageId > 0 ? url + person.profileImageId : url + "default-image" } accept="image/gif, image/jpeg, image/png, image/jpg" alt="" className="edit-profile-image" />
                         </label>
-                        <input style={{ display: "none" }}  type="file" className="edit-profile-image" id="edit-profile-image" accept="image/jpeg, image/png, image/jpg" onChange={(e) => setNewProfileImageRoute(e.target.value)} />
+                        <input style={{ display: "none" }}  type="file" className="edit-profile-image" id="edit-profile-image" accept="image/jpeg, image/png, image/jpg" onChange={(e) => setNewProfileImageId(e.target.files[0])} />
                         <input type="text" style={{ marginTop: "75px" }} className="input" value={ newUsername } name="new-username" id="new-username" required onChange={(e) => setNewUsername(e.target.value)} /><br />
                         <textarea className="input" value={ newBio } name="new-bio" id="new-bio" cols="20" rows="auto" onChange={(e) => setNewBio(e.target.value)}></textarea><br />
                     </div>
                     { error && <div style={{ color: 'red', padding: '10px' }}>{ errorMessage }</div> }
                     { redirect && <Redirect to={ '/profile/' + person.id } /> }
-                </div>
+                </form>
             </div>
         </div>
     )

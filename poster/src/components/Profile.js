@@ -7,6 +7,7 @@ import moment from "moment";
 
 const Profile = () => {
     const { id } = useParams();
+    const url = "http://localhost:8080/media/";
 
     const [person, setPerson] = useState({});
     const [isCurrentPersonProfile, setIsCurrentPersonProfile] = useState(false);
@@ -28,10 +29,10 @@ const Profile = () => {
 
     return (
         <div className="profile-page">
-            <img src={ person.profileBackgroundImageId ? person.profileBackgroundImageId : "/media/default-image" } alt="" className="profile-background-image" />
+            <img src={ person.profileBackgroundImageId ? url + person.profileBackgroundImageId : url + "default-image" } alt="" className="profile-background-image" />
             <div className="before-bio">
                 <div className="profile-image-container">
-                    <img src={ person.profileImageId ? person.profileImageId : "/media/default-image" } alt="" className="profile-image" />
+                    <img src={ person.profileImageId ? url + person.profileImageId : url + "default-image" } alt="" className="profile-image" />
                 </div>
                  { isCurrentPersonProfile ? <Link to="/settings/profile" className="edit-profile-link"><button className="button">Edit profile</button></Link> : <button className="button profile-follow-button" onClick={ sendFollow }>Follow</button>}
             </div>
