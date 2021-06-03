@@ -9,7 +9,7 @@ const FollowSidebar = () => {
         axios.get("/follow-sidebar")
             .then(res => setPeople(res.data))
             .catch(err => console.log(err));
-    });
+    }, []);
  
     return (
         <div className='who-to-follow'>

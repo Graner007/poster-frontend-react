@@ -7,7 +7,6 @@ import moment from "moment";
 
 const Profile = () => {
     const { id } = useParams();
-    const intId = parseInt(id);
 
     const [person, setPerson] = useState({});
     const [isCurrentPersonProfile, setIsCurrentPersonProfile] = useState(false);
