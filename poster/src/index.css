@@ -366,6 +366,11 @@ code {
 
 .adom-count:hover {
   color: red;
+  cursor: pointer;
+}
+
+.liked {
+  color: red;
 }
 
 .comment-count {
@@ -374,10 +379,15 @@ code {
 
 .comment-count:hover {
   color: #00ffff;
+  cursor: pointer;
 }
 
 .share-count {
   flex: 1 1 20px;
+}
+
+.shared {
+  color: #7fff00;
 }
 
 .adom-count,
@@ -388,6 +398,7 @@ code {
 
 .share-count:hover {
   color: #7fff00;
+  cursor: pointer;
 }
 
 .button {
