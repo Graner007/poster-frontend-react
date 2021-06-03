@@ -9,6 +9,8 @@ const Post = ({ post, media }) => {
   const [isLiked, setLiked] = useState(post.liked);
   const [isShared, setShared] = useState(post.shared);
 
+  const imageUrl = "http://localhost:8080/media/";
+
   const person = post.person;
 
   const date = moment(person.postDate).fromNow();
@@ -39,7 +41,14 @@ const Post = ({ post, media }) => {
         <Link to={"/profile/" + person.id} className="profile-link">
           <div className="profile-picture">
             {person.profileImageId !== 0 && (
-              <img src={person.profileImageId} alt="" />
+              <img
+                src={
+                  person.profileImageId != null
+                    ? imageUrl + person.profileImageId
+                    : imageUrl + "default-image"
+                }
+                alt=""
+              />
             )}
             {person.profileImageId === 0 && <DefaultProfile />}
           </div>
