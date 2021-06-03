@@ -5,7 +5,7 @@ import moment from "moment";
 
 const Post = ({ post, media }) => {
   const person = post.person;
-  
+
   const date = moment(person.postDate).fromNow();
 
   return (

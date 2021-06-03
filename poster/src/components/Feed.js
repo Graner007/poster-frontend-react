@@ -1,20 +1,31 @@
 import AddPost from "./AddPost";
 import PostList from "./PostList";
 import SpaceAfterAddPost from "./SpaceAfterAddPost";
-import { useContext } from "react";
-import { PostContext } from "../contexts/PostContext";
-
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Feed = () => {
-    const { posts } = useContext(PostContext);
+  const [feedPosts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    return (
-        <div className="feed">
-            <AddPost />
-            <SpaceAfterAddPost />
-            <PostList posts={ posts } />
-        </div>
-    )
-}
+  const init = async () => {
+    await axios.get("/posts").then((res) => {
+      setPosts(res.data.posts);
+    });
+  };
+
+  useEffect(() => {
+    init();
+    setLoading(false);
+  }, []);
+
+  return (
+    <div className="feed">
+      <AddPost />
+      <SpaceAfterAddPost />
+      {!loading && <PostList posts={feedPosts} />}
+    </div>
+  );
+};
 
 export default Feed;
