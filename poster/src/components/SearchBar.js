@@ -14,7 +14,7 @@ const SearchBar = () => {
         if (searchPhrase.length > 0) {
             axios.post("/search", data)
             .then(res => setPeople(res.data))
-            .catch(err => console.log(err));
+            .catch(err => console.error(err));
         }  
     }, [searchPhrase]);
     

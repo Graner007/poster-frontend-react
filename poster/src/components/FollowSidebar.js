@@ -8,7 +8,7 @@ const FollowSidebar = () => {
     useEffect(() => {
         axios.get("/follow-sidebar")
             .then(res => setPeople(res.data))
-            .catch(err => console.log(err));
+            .catch(err => console.error(err));
     }, []);
  
     return (
