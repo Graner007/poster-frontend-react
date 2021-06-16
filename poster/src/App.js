@@ -2,9 +2,7 @@ import Navbar from "./components/Navbar";
 import { Route, Switch } from "react-router-dom";
 import useWindowSize from "./util/useWindowSize";
 import BottomNavbar from "./components/BottomNavbar";
-import PersonContextProvider from "./contexts/PersonContext";
-import PostContextProvider from "./contexts/PostContext";
-import MediaContextProvider from "./contexts/MediaContext";
+import ThemeContextProvider from "./contexts/ThemeContext";
 import HomeHeader from "./components/HomeHeader";
 import RightSidebar from "./RightSidebar";
 import Profile from "./components/Profile";
@@ -19,13 +17,13 @@ import Registration from "./components/Registration";
 
 function App() {
   const [width] = useWindowSize();
-  //const url = document.location.pathname;
   const url = useLocation().pathname;
   const headerTitle = "Home";
   const contentRoutes = ["/registration", "/login", "/", "logout"];
 
   return (
-    {!contentRoutes.includes(url) && width > 500 && <Navbar />}
+    <ThemeContextProvider>
+      {!contentRoutes.includes(url) && width > 500 && <Navbar />}
     {!contentRoutes.includes(url) && width <= 500 && <BottomNavbar />}
     <div
       className={!contentRoutes.includes(url) ? "container" : "content"}
@@ -59,6 +57,7 @@ function App() {
       </Switch>
     </div>
     {width > 1018 && !contentRoutes.includes(url) && <RightSidebar />}
+    </ThemeContextProvider>
   );
 }
 

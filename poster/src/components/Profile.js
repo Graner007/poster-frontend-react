@@ -18,13 +18,13 @@ const Profile = () => {
                 setPerson(res.data.person);
                 setIsCurrentPersonProfile(res.data.isLoggedPerson);
             })
-            .catch(err => console.log(err));
+            .catch(err => console.error(err));
     }, [id]);
 
     const sendFollow = () => {
         axios.post("/profile/"+id)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+            .then(res => console.info(res))
+            .catch(err => console.error(err));
     }
 
     return (

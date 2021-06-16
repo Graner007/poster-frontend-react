@@ -28,7 +28,7 @@ const EditProfile = () => {
             setNewUsername(res.data.username);
             setNewBio(res.data.description);
         })
-        .catch(err => console.log(err));
+        .catch(err => console.error(err));
     }, []);
 
     const sendEdit = (e) => {

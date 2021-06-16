@@ -8,15 +8,13 @@ const Feed = () => {
   const [feedPosts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const init = async () => {
-    await axios.get("/posts").then((res) => {
-      setPosts(res.data.posts);
-    });
+  const init = () => {
+    return axios.get("/posts").then(res => setPosts(res.data.posts));
   };
 
   useEffect(() => {
-    init();
-    setLoading(false);
+    init()
+      .then(res => setLoading(false));
   }, []);
 
   return (
