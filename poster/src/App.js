@@ -19,13 +19,12 @@ import Registration from "./components/Registration";
 
 function App() {
   const [width] = useWindowSize();
-  //const url = document.location.pathname;
   const url = useLocation().pathname;
   const headerTitle = "Home";
   const contentRoutes = ["/registration", "/login", "/", "logout"];
 
   return (
-    {!contentRoutes.includes(url) && width > 500 && <Navbar />}
+    {!}
     {!contentRoutes.includes(url) && width <= 500 && <BottomNavbar />}
     <div
       className={!contentRoutes.includes(url) ? "container" : "content"}
