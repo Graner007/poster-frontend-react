@@ -25,46 +25,40 @@ function App() {
   const contentRoutes = ["/registration", "/login", "/", "logout"];
 
   return (
-    <PersonContextProvider>
-      <PostContextProvider>
-        <MediaContextProvider>
-          {!contentRoutes.includes(url) && width > 500 && <Navbar />}
-          {!contentRoutes.includes(url) && width <= 500 && <BottomNavbar />}
-          <div
-            className={!contentRoutes.includes(url) ? "container" : "content"}
-          >
-            {!contentRoutes.includes(url) && <HomeHeader title={headerTitle} />}
-            <Switch>
-              <Route path="/home" exact>
-                <Feed />
-              </Route>
-              <Route path="/profile/:id" exact>
-                <Profile />
-              </Route>
-              <Route path="/settings/profile" exact>
-                <EditProfile />
-              </Route>
-              <Route path="/logout" exact>
-                <Logout />
-              </Route>
-              <Route path="/login" exact>
-                <Login />
-              </Route>
-              <Route path="/registration" exact>
-                <Registration />
-              </Route>
-              <Route path="/" exact>
-                <Index />
-              </Route>
-              <Route path="*">
-                <Error />
-              </Route>
-            </Switch>
-          </div>
-          {width > 1018 && !contentRoutes.includes(url) && <RightSidebar />}
-        </MediaContextProvider>
-      </PostContextProvider>
-    </PersonContextProvider>
+    {!contentRoutes.includes(url) && width > 500 && <Navbar />}
+    {!contentRoutes.includes(url) && width <= 500 && <BottomNavbar />}
+    <div
+      className={!contentRoutes.includes(url) ? "container" : "content"}
+    >
+      {!contentRoutes.includes(url) && <HomeHeader title={headerTitle} />}
+      <Switch>
+        <Route path="/home" exact>
+          <Feed />
+        </Route>
+        <Route path="/profile/:id" exact>
+          <Profile />
+        </Route>
+        <Route path="/settings/profile" exact>
+          <EditProfile />
+        </Route>
+        <Route path="/logout" exact>
+          <Logout />
+        </Route>
+        <Route path="/login" exact>
+          <Login />
+        </Route>
+        <Route path="/registration" exact>
+          <Registration />
+        </Route>
+        <Route path="/" exact>
+          <Index />
+        </Route>
+        <Route path="*">
+          <Error />
+        </Route>
+      </Switch>
+    </div>
+    {width > 1018 && !contentRoutes.includes(url) && <RightSidebar />}
   );
 }
 
