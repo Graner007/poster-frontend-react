@@ -17,11 +17,16 @@ const SearchBar = () => {
             .catch(err => console.error(err));
         }  
     }, [searchPhrase]);
+
+    const handleOnBlur = () => {
+        data.delete("searchPhrase");
+        setPeople([]);
+    }
     
     return (
         <div className="search-bar">
-            <i className="fa fa-search"></i><input type="text" onFocus={() => setOnfocus(true)} onChange={(e) => setSearchPhrase(e.target.value)} placeholder="Search Poster" style={{ fontSize: "20px" }}/>
-            { onFocus && searchPhrase.length > 0 && <SearchBarBoxResults people={ people } /> }
+            <i className="fa fa-search"></i><input type="text" onBlur={() => handleOnBlur()} onFocus={() => setOnfocus(true)} onChange={(e) => setSearchPhrase(e.target.value)} placeholder="Search Poster" style={{ fontSize: "20px" }}/>
+            { onFocus && searchPhrase.length > 0 && <SearchBarBoxResults people={ people } setPeople={ setPeople } /> }
         </div>
     )
 }

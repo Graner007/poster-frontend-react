@@ -1,7 +1,6 @@
 import { useEffect, useState  } from "react";
 import { useParams } from "react-router";
 import { Link } from 'react-router-dom';
-import PostList from "./PostList";
 import axios from "axios";
 import moment from "moment";
 
