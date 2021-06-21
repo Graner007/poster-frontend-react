@@ -4,7 +4,7 @@ const ProfileCard = ({ person }) => {
   const imageUrl = "http://localhost:8080/media/";
 
   return (
-    <div className="profile-card" key={person.id}>
+    <div className="profile-card">
       <Link to={"/profile/" + person.id} className="profile-link">
         <img
           src={

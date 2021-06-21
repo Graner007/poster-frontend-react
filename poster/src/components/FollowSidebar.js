@@ -15,7 +15,7 @@ const FollowSidebar = () => {
         <div className='who-to-follow'>
             <h2 className="who-to-follow-title">Who To Follow</h2>
             { people.map(person => (
-                <ProfileCard person={ person } />
+                <ProfileCard person={ person } key={ person.id } />
             )) }
         </div>
     )

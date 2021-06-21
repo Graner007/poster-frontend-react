@@ -79,7 +79,7 @@ const EditProfile = () => {
                         <label htmlFor="edit-profile-background-image">
                             <img src={ person.profileBackgroundImageId > 0 ? url + person.profileBackgroundImageId : url + "default-image" } alt="" className="profile-background-image" />
                         </label>
-                        <input style={{ display: "none" }} value={person.profileImageRoute} type="file" accept="image/gif, image/jpeg, image/png, image/jpg" className="edit-profile-background-image" id="edit-profile-background-image" accept="image/jpeg, image/png, image/jpg" onChange={(e) => setNewProfileBackgroundImageId(e.target.files[0])} />
+                        <input style={{ display: "none" }} value={person.profileImageRoute} type="file" accept="image/gif, image/jpeg, image/png, image/jpg" className="edit-profile-background-image" id="edit-profile-background-image" onChange={(e) => setNewProfileBackgroundImageId(e.target.files[0])} />
                         <label htmlFor="edit-profile-image">
                             <img src={ person.profileImageId > 0 ? url + person.profileImageId : url + "default-image" } accept="image/gif, image/jpeg, image/png, image/jpg" alt="" className="edit-profile-image" />
                         </label>
