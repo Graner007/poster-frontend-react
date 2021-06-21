@@ -6,7 +6,7 @@ import moment from "moment";
 
 const Profile = () => {
     const { id } = useParams();
-    const url = "http://localhost:8080/media/";
+    const url = "/media/";
 
     const [person, setPerson] = useState({});
     const [isCurrentPersonProfile, setIsCurrentPersonProfile] = useState(false);

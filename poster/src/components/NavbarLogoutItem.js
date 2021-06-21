@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const NavbarLogoutItem = (props) => {
   const [open, setOpen] = useState(false);
-  const imageUrl = "http://localhost:8080/media/";
+  const imageUrl = "/media/";
 
   return (
     <div className="navbar-logout-container">
@@ -13,7 +13,7 @@ const NavbarLogoutItem = (props) => {
         <img
           src={
             props.profileImageId != null
-              ? imageUrl + props.profileImageId
+              ? imageUrl + props.profileImageId 
               : imageUrl + "default-image"
           }
           className="navbar-profile-picture"

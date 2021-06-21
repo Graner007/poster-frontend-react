@@ -9,7 +9,7 @@ const Post = ({ post, media }) => {
   const [isLiked, setLiked] = useState(post.liked);
   const [isShared, setShared] = useState(post.shared);
 
-  const imageUrl = "http://localhost:8080/media/";
+  const imageUrl = "/media/";
 
   const person = post.person;
 

@@ -1,6 +1,6 @@
 const ImageContainer = ({ images }) => {
   const imageCount = images.length;
-  const imageUrl = "http://localhost:8080/media/";
+  const imageUrl = "/media/";
   return (
     <div className="post-image-container">
       {imageCount <= 2 && (
