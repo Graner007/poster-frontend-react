@@ -1,6 +1,6 @@
 import AddPost from "./AddPost";
 import PostList from "./PostList";
-import SpaceAfterAddPost from "./SpaceAfterAddPost";
+import CustomPaddingDiv from "./CustomPaddingDiv";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -20,8 +20,8 @@ const Feed = () => {
   return (
     <div className="feed">
       <AddPost />
-      <SpaceAfterAddPost />
-      {!loading && <PostList posts={feedPosts} />}
+      <CustomPaddingDiv padding={ '5px' } bgColor={ '#efefef' } />
+      {!loading && <PostList posts={ feedPosts } />}
     </div>
   );
 };

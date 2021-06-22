@@ -414,11 +414,6 @@ code {
   cursor: pointer;
 }
 
-.add-post-space {
-  padding: 5px;
-  background-color: #efefef;
-}
-
 .add-post {
   border: 1px solid #dcdcdc;
   padding: 10px;
