@@ -11,7 +11,7 @@ const AddPost = () => {
             setPerson(res.data);
         })
         .catch(err => console.error(err));
-}, []);
+}, [person.id]);
 
   const [message, setMessage] = useState("");
   const [media, setMedia] = useState([]);

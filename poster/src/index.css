@@ -609,6 +609,11 @@ textarea {
   font-weight: 300;
 }
 
+.header-title {
+  text-decoration: none;
+  color: black;
+}
+
 .index-second-title {
   font-size: 31px;
 }
