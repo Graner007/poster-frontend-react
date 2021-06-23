@@ -6,22 +6,18 @@ import axios from "axios";
 
 const Feed = () => {
   const [feedPosts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  const init = () => {
-    return axios.get("/posts").then(res => setPosts(res.data.posts));
-  };
 
   useEffect(() => {
-    init()
-      .then(res => setLoading(false));
+    axios.get("/posts")
+      .then(res => setPosts(res.data.posts))
+      .catch(err => console.error(err));
   }, []);
 
   return (
     <div className="feed">
       <AddPost />
       <CustomPaddingDiv padding={ '5px' } bgColor={ '#efefef' } />
-      {!loading && <PostList posts={ feedPosts } />}
+      <PostList posts={ feedPosts } />
     </div>
   );
 };

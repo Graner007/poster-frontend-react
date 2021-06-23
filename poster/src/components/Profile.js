@@ -1,14 +1,16 @@
 import { useEffect, useState  } from "react";
 import { useParams } from "react-router";
 import { Link } from 'react-router-dom';
+import PostList from "./PostList";
 import axios from "axios";
 import moment from "moment";
 
 const Profile = () => {
     const { id } = useParams();
-    const url = "/media/";
+    const mediaUrl = "/media/";
 
     const [person, setPerson] = useState({});
+    const [posts, setPosts] = useState([]);
     const [isCurrentPersonProfile, setIsCurrentPersonProfile] = useState(false);
 
     useEffect(() => {
@@ -26,12 +28,18 @@ const Profile = () => {
             .catch(err => console.error(err));
     }
 
+    useEffect(() => {
+        axios.get("/posts/profile/" + id)
+        .then(res => setPosts(res.data.posts))
+        .catch(err => console.error(err));
+    }, [id])
+
     return (
         <div className="profile-page">
-            <img src={ person.profileBackgroundImageId ? url + person.profileBackgroundImageId : url + "default-image" } alt="" className="profile-background-image" />
+            <img src={ person.profileBackgroundImageId ? mediaUrl + person.profileBackgroundImageId : mediaUrl + "default-image" } alt="" className="profile-background-image" />
             <div className="before-bio">
                 <div className="profile-image-container">
-                    <img src={ person.profileImageId ? url + person.profileImageId : url + "default-image" } alt="" className="profile-image" />
+                    <img src={ person.profileImageId ? mediaUrl + person.profileImageId : mediaUrl + "default-image" } alt="" className="profile-image" />
                 </div>
                  { isCurrentPersonProfile ? <Link to="/settings/profile" className="edit-profile-link"><button className="button">Edit profile</button></Link> : <button className="button profile-follow-button" onClick={ sendFollow }>Follow</button>}
             </div>
@@ -48,6 +56,7 @@ const Profile = () => {
                 <div className="profile-media">Media</div>
                 <div className="profile-adoms">Adoms</div>
             </div>
+            { posts.length > 0 ? <PostList posts={ posts } /> : <div><b>No Posts avaiable</b></div> }
         </div>
     )
 }

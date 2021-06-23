@@ -4,7 +4,7 @@ import useWindowSize from "./util/useWindowSize";
 import BottomNavbar from "./components/BottomNavbar";
 import ThemeContextProvider from "./contexts/ThemeContext";
 import HomeHeader from "./components/HomeHeader";
-import RightSidebar from "./RightSidebar";
+import RightSidebar from "./components/RightSidebar";
 import Profile from "./components/Profile";
 import Feed from "./components/Feed";
 import Index from "./components/Index";

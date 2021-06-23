@@ -13,7 +13,7 @@ const Post = ({ post, media }) => {
 
   const person = post.person;
 
-  const date = moment(person.postDate).fromNow();
+  const date = moment(post.postDate).fromNow();
 
   const likeEvent = (e) => {
     e.preventDefault();
@@ -36,7 +36,7 @@ const Post = ({ post, media }) => {
   };
 
   return (
-    <div className="post" key={post.id}>
+    <div className="post">
       <div className="post-header">
         <Link to={"/profile/" + person.id} className="profile-link">
           <div className="profile-picture">
