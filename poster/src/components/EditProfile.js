@@ -12,7 +12,7 @@ const EditProfile = () => {
     const [newProfileBackgroundImageId, setNewProfileBackgroundImageId] = useState();
     const [newUsername, setNewUsername] = useState("");
     const [newBio, setNewBio] = useState();
-    const url = "http://localhost:8080/media/";
+    const mediaUrl = "/media/";
 
     const closeEditProfileDialog = () => {
         setView("none");
@@ -77,11 +77,11 @@ const EditProfile = () => {
                     </div>
                     <div className="edit-profile-inputs">
                         <label htmlFor="edit-profile-background-image">
-                            <img src={ person.profileBackgroundImageId > 0 ? url + person.profileBackgroundImageId : url + "default-image" } alt="" className="profile-background-image" />
+                            <img src={ person.profileBackgroundImageId > 0 ? mediaUrl + person.profileBackgroundImageId : mediaUrl + "default-image" } alt="" className="profile-background-image" />
                         </label>
-                        <input style={{ display: "none" }} value={person.profileImageRoute} type="file" accept="image/gif, image/jpeg, image/png, image/jpg" className="edit-profile-background-image" id="edit-profile-background-image" accept="image/jpeg, image/png, image/jpg" onChange={(e) => setNewProfileBackgroundImageId(e.target.files[0])} />
+                        <input style={{ display: "none" }} value={person.profileImageRoute} type="file" accept="image/gif, image/jpeg, image/png, image/jpg" className="edit-profile-background-image" id="edit-profile-background-image" onChange={(e) => setNewProfileBackgroundImageId(e.target.files[0])} />
                         <label htmlFor="edit-profile-image">
-                            <img src={ person.profileImageId > 0 ? url + person.profileImageId : url + "default-image" } accept="image/gif, image/jpeg, image/png, image/jpg" alt="" className="edit-profile-image" />
+                            <img src={ person.profileImageId > 0 ? mediaUrl + person.profileImageId : mediaUrl + "default-image" } accept="image/gif, image/jpeg, image/png, image/jpg" alt="" className="edit-profile-image" />
                         </label>
                         <input style={{ display: "none" }}  type="file" className="edit-profile-image" id="edit-profile-image" accept="image/jpeg, image/png, image/jpg" onChange={(e) => setNewProfileImageId(e.target.files[0])} />
                         <input type="text" style={{ marginTop: "75px" }} className="input" value={ newUsername } name="new-username" id="new-username" required onChange={(e) => setNewUsername(e.target.value)} /><br />

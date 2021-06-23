@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
 const ProfileCard = ({ person }) => {
-  const imageUrl = "http://localhost:8080/media/";
+  const imageUrl = "/media/";
 
   return (
-    <div className="profile-card" key={person.id}>
+    <div className="profile-card">
       <Link to={"/profile/" + person.id} className="profile-link">
         <img
           src={

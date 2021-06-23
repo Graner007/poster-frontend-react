@@ -16,7 +16,7 @@ const Navbar = () => {
         setPerson(res.data);
       })
       .catch((err) => console.error(err));
-  }, []);
+  }, [person.id]);
 
   return (
     <div className="navbar">

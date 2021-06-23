@@ -414,11 +414,6 @@ code {
   cursor: pointer;
 }
 
-.add-post-space {
-  padding: 5px;
-  background-color: #efefef;
-}
-
 .add-post {
   border: 1px solid #dcdcdc;
   padding: 10px;
@@ -612,6 +607,11 @@ textarea {
   color: #fff;
   font-size: 18px;
   font-weight: 300;
+}
+
+.header-title {
+  text-decoration: none;
+  color: black;
 }
 
 .index-second-title {

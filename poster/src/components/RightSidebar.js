@@ -1,5 +1,5 @@
-import SearchBar from "./components/SearchBar";
-import FollowSidebar from "./components/FollowSidebar";
+import SearchBar from "./SearchBar";
+import FollowSidebar from "./FollowSidebar";
 
 const RightSidebar = () => {
   return (
